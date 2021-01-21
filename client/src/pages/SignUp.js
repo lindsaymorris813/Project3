@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Jumbotron from "../components/Jumbotron";
 
 function SignUp() {
     const [signupEmail, setSignupEmail] = useState("");
@@ -23,6 +24,7 @@ function SignUp() {
 
     return (
         <>
+            <Jumbotron />
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
