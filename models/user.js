@@ -1,42 +1,22 @@
-//Require Mongoose
-const  mongoose = require("mongoose");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+var bcrypt = require("bcryptjs");
 
-//Creating our User model
-const Schema = mongoose.Schema; 
-const user = new Schema(
-    {
-        email: {
-            type: String, 
-            trim: true, 
-            required: "Enter a valid email address!", 
-            minlength: 5, 
-            maxlength: 15
-        }, 
-        password: {
-            type: String, 
-            required: true, 
-            minlength: 5, 
-            maxlength: 15
-        }
-    }
-);
-//Replace "user" with mongoDB name. - @V/Lindsay
-const User = mongoose.model("User", user);
+const userSchema = new Schema ({
+    username: { type: String, unique: true, required: "Please enter a Username" },
+    password: { type: String, required: "Please enter a Password" },
+    firstName: { type: String, required: "Please enter a First Name" },
+    lastName: { type: String, required: "Please enter a Last Name" },
+    image: { type: String },
+    birthday: { type: Date },
+    bio: { type: String }
+});
 
-//Export User Model.
-module.exports = User
+userSchema.methods.setFullName = function() {
+    this.fullName = `${this.firstName} ${this.lastName}`;
+    return this.fullName;
+};
 
-// //Creating a custon method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in the our database.
-// User.prototype.validPassword = function (password) {
-//   return bcrypt.compareSync(password, this.password);
-// };
+const User = mongoose.model("User", userSchema);
 
-// //Hooks are automatic methods that run during various phases of the User Model Lifecycle
-// //In this case, before a User is created, we will automatically hash their password. 
-// User.addHook("beforeCreate", user => {
-//     user.password = bcrypt.hashSync(
-//         user.password, 
-//         bcrypt.genSaltSync(10),
-//         null
-//     );
-// });
+module.exports = User;
