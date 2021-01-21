@@ -1,22 +1,20 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
-const PORT = process.env.PORT || 3001;
-
+const PORT = process.env.PORT || 3000;
 const passport = require("passport");
-
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
-
 const bodyParser = require("body-parser");
 const User = require("./models/user");
-
 const app = express();
 
 //Connection to Mongoose - attn @V/Lindsay
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/<DBNAME>", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smoothiedb", {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
 },
 () => {
   console.log("mongoose is connected");
@@ -42,7 +40,7 @@ require("./config/passport")(passport);
 //--------------------------------Middleware End--------------------------------------------------
 
 //------------------------------------Routes-------------------------------------
-app.post("/login", (req, res, next) => {
+app.post("/api/login", (req, res, next) => {
   passport.authenticate("local", (err, user) => {
     if (err) throw err;
     if (!user) res.send("User doesnt exist!");
@@ -56,7 +54,7 @@ app.post("/login", (req, res, next) => {
   });
   (req, res, next);
 });
-app.post("/signup",(req, res) => {
+app.post("/api/signup",(req, res) => {
   User.findOne({ email: req.body.email },
     async function (err, doc) {
       if (err) throw err;
@@ -82,9 +80,9 @@ if (process.env.NODE_ENV === "production") {
 
 // Send every request to the React app
 // Define any API routes before this runs
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
