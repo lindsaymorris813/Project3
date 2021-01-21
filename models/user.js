@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-var bcrypt = require("bcryptjs");
+// var bcrypt = require("bcryptjs");
 
 const userSchema = new Schema ({
   username: { type: String, unique: true, required: "Please enter a Username" },
