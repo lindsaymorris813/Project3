@@ -1,7 +1,6 @@
 module.exports = {
-    Post: require("./ingredient"),
-    Post: require("./rating"),
-    Post: require("./recipe"),
-    Post: require("./user")
-  };
-  
+  Post: require("./ingredient"),
+  Post: require("./rating"),
+  Post: require("./recipe"),
+  Post: require("./user")
+};
