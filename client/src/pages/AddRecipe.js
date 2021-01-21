@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Dashboard (){
+function AddRecipe (){
 
 
 
@@ -14,4 +14,4 @@ function Dashboard (){
 
 
 }
-export default Dashboard 
+export default AddRecipe
