@@ -2,21 +2,19 @@ const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const PORT = process.env.PORT || 3001;
-
 const passport = require("passport");
-
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
-
 const bodyParser = require("body-parser");
 const User = require("./models/user");
-
 const app = express();
 
 //Connection to Mongoose - attn @V/Lindsay
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/<DBNAME>", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smoothiedb", {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
 },
 () => {
   console.log("mongoose is connected");
@@ -26,7 +24,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/<DBNAME>", {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(cors({
-//   origin: "http://localhost:3000",  // <-- Location of the react app were connecting to
+//   origin: "http://localhost:3000",// <-- Location of the react app were connecting to
 //   credentials: true
 // }));
 
@@ -42,21 +40,24 @@ require("./config/passport")(passport);
 //--------------------------------Middleware End--------------------------------------------------
 
 //------------------------------------Routes-------------------------------------
-app.post("/login", (req, res, next) => {
+app.post("/api/login", (req, res, next) => {
+  console.log("We hit the route");
   passport.authenticate("local", (err, user) => {
+    console.log("Authentication has began!");
     if (err) throw err;
     if (!user) res.send("User doesnt exist!");
     else {
-      req.login(user, err => {
+      req.logIn(user, err => {
         if (err) throw (err);
         res.send("Authentication successful");
         console.log(req.user);
       });
     }
-  });
+  })
   (req, res, next);
 });
-app.post("/signup",(req, res) => {
+
+app.post("/api/signup",(req, res) => {
   User.findOne({ email: req.body.email },
     async function (err, doc) {
       if (err) throw err;
@@ -66,7 +67,9 @@ app.post("/signup",(req, res) => {
 
         const newUser = new User({
           email: req.body.email,
-          password: hashedPassword
+          password: hashedPassword,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
         });
         await newUser.save();
         res.send("Account has been created!");
