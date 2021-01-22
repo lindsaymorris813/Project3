@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./App.css";
 import SignUp from "./pages/SignUp.js"
 import Login from "./pages/Login.js"
+import RecipeCard from "./components/RecipeCard";
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
       <>
       <SignUp />
       <Login />
+      <RecipeCard />
       </>
     );
   }
