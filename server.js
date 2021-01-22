@@ -41,23 +41,19 @@ require("./config/passport")(passport);
 
 //------------------------------------Routes-------------------------------------
 app.post("/api/login", (req, res, next) => {
-  console.log("DD is the best");
-  passport.authenticate("local", (err, user, info) => {
-    console.log("DDD is the best");
+  console.log("We hit the route");
+  passport.authenticate("local", (err, user) => {
+    console.log("Authentication has began!");
     if (err) throw err;
     if (!user) res.send("User doesnt exist!");
     else {
-<<<<<<< HEAD
-      console.log("there is a user");
-=======
->>>>>>> e685d46f1ff61422a13cebcea28a11d2b0f48410
       req.logIn(user, err => {
         if (err) throw (err);
         res.send("Authentication successful");
         console.log(req.user);
       });
     }
-  });
+  })
   (req, res, next);
 });
 
