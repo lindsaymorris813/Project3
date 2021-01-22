@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Jumbotron from "../components/Jumbotron";
 
 
 const Login = () => {
-
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+
   const login = (event) => {
     event.preventDefault();
     console.log('Clicked Login');
@@ -17,10 +18,14 @@ const Login = () => {
       },
       withCredentials: true,
       url: "/api/login",
-    }).then((res) => console.log(res))
+    }).then((res) => console.log(res)).catch(err => {
+      console.log(err)
+    })
+    console.log("V is cool peeps")
   };
   return (
     <>
+      <Jumbotron />
       <div class="container">
         <div class="row">
           <div class="col-sm-12 mt-5">
@@ -54,7 +59,6 @@ const Login = () => {
           <div class="col-3"></div>
         </div>
       </div>
-
     </>
   )
 }
