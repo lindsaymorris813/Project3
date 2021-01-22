@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 // var bcrypt = require("bcryptjs");
+//Removed Required Fields for FN, LN;
 
 const userSchema = new Schema ({
   email: { type: String, unique: true, required: "Please enter a Email" },
   password: { type: String, required: "Please enter a Password" },
-  firstName: { type: String, required: "Please enter a First Name" },
-  lastName: { type: String, required: "Please enter a Last Name" },
+  firstName: { type: String },
+  lastName: { type: String },
   image: { type: String },
   birthday: { type: Date },
   bio: { type: String }
