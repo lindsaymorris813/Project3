@@ -37,12 +37,12 @@ function SignUp() {
                         <form class="login">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control shadow p-3 m-3 bg-white rounded" id="email-input"
+                                <input type="email" class="form-control shadow p-3 m-3 bg-white rounded" id="signup-email-input"
                                     placeholder="Email" onChange={e => setSignupEmail(e.target.value)} ></input>
                             </div>
                             <div class="form-group mt-4">
                                 <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control shadow p-3 m-3 bg-white rounded" id="password-input"
+                                <input type="password" class="form-control shadow p-3 m-3 bg-white rounded" id="signup-password-input"
                                     placeholder="Password" onChange={e => setSignupPassword(e.target.value)}></input>
                             </div>
                             <div class="form-group mt-4">
