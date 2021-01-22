@@ -7,10 +7,10 @@ function Header() {
 
     return (
         <>
-            <nav className="navbar navbar-light bg-light">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Welcome!</a>
-                </div>
+            <nav class="navbar navbar-light" style="background-color: #145c9e;">
+                <a class="navbar-brand" href="#">Welcome!</a>
+                <button class="btn btn-outline-info" type="button">Logout</button>
+                <button class="btn btn-light" type="button">Search Recipes</button>
             </nav>
         </>
 
