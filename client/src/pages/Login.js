@@ -3,9 +3,9 @@ import axios from "axios";
 
 
 const Login = () => {
-
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+
   const login = (event) => {
     event.preventDefault(); 
     console.log('Clicked Login'); 
@@ -17,15 +17,18 @@ const Login = () => {
       },
       withCredentials: true, 
       url: "/api/login",
-    }).then((res) => console.log(res))
+    }).then((res) => console.log(res)).catch(err => {
+      console.log(err)
+    })
+    console.log("V is cool peeps")
   };
     return (
       <div className="Login">
         <div>
         <h1>Login</h1>
-        <input placeholder = "email" onChange={e => setLoginEmail(e.target.value)} />
-        <input placeholder = "password" onChange={e => setLoginPassword (e.target.value)}/>
-        <button onClick ={login} >Submit</button> 
+        <input className="form-control" placeholder = "email" onChange={e => setLoginEmail(e.target.value)} />
+        <input className="form-control"placeholder = "password" type="password" onChange={e => setLoginPassword (e.target.value)}/>
+        <button onClick={login} >Submit</button> 
         </div>
       </div>
     )

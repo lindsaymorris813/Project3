@@ -41,11 +41,13 @@ require("./config/passport")(passport);
 
 //------------------------------------Routes-------------------------------------
 app.post("/api/login", (req, res, next) => {
-  passport.authenticate("local", (err, user) => {
+  console.log("DD is the best");
+  passport.authenticate("local", (err, user, info) => {
+    console.log("DDD is the best");
     if (err) throw err;
     if (!user) res.send("User doesnt exist!");
     else {
-      req.login(user, err => {
+      req.logIn(user, err => {
         if (err) throw (err);
         res.send("Authentication successful");
         console.log(req.user);
@@ -54,6 +56,7 @@ app.post("/api/login", (req, res, next) => {
   });
   (req, res, next);
 });
+
 app.post("/api/signup",(req, res) => {
   User.findOne({ email: req.body.email },
     async function (err, doc) {
@@ -64,7 +67,9 @@ app.post("/api/signup",(req, res) => {
 
         const newUser = new User({
           email: req.body.email,
-          password: hashedPassword
+          password: hashedPassword,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
         });
         await newUser.save();
         res.send("Account has been created!");
@@ -80,9 +85,9 @@ if (process.env.NODE_ENV === "production") {
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

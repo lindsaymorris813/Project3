@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const localStrategy = require("passport-local").Strategy;
 
 module.exports = function(passport) {
+  // {usernameField: "email"}
   passport.use(
     new localStrategy((email, password, done) => {
       User.findOne({email: email}, (err, user) => {
@@ -31,11 +32,11 @@ module.exports = function(passport) {
   });
 
   passport.deserializeUser((id, cb) => {
-    User.findOne ({ _id: id }, (err, user) => {
-      const accountInfo = {
+    User.findOne({ _id: id }, (err, user) => {
+      const userInformation = {
         email: user.email,
       };
-      cb(err, accountInfo);
+      cb(err, userInformation);
     });
   });
 };
