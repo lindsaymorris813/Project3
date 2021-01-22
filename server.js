@@ -45,11 +45,13 @@ app.post("/api/login", (req, res, next) => {
   passport.authenticate("local", (err, user) => {
     console.log("Authentication has began!");
     if (err) throw err;
-    if (!user) res.send("User doesnt exist!");
-    else {
+    if (!user) {
+      res.redirect("/signup");
+    } else {
       req.logIn(user, err => {
         if (err) throw (err);
         res.send("Authentication successful");
+        console.log("redirect");
       });
     }
   })(req, res, next);
