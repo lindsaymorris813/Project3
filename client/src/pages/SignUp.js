@@ -8,9 +8,6 @@ const SignUp = () => {
     const [signupFirst, setSignupFirst] = useState("");
     const [signupSecond, setSignupSecond] = useState("");
 
-
-
-
     const signup = (event) => {
         event.preventDefault();
         console.log("Clicked Signup");
