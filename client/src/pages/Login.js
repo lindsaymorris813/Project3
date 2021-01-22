@@ -18,20 +18,23 @@ const Login = () => {
       },
       withCredentials: true,
       url: "/api/login",
-    }).then((res) => console.log(res)).catch(err => {
-      console.log(err)
+    }).then((res) => {
+      console.log(res);
+      if (res.data !== "Authentication successful") {
+        alert("Password or email is incorrect, try again.")
+      }
     })
-    console.log("V is cool peeps")
   };
+
   return (
     <>
       <Jumbotron />
       <div className="Login">
         <div>
-        <h1>Login</h1>
-        <input className="form-control" placeholder = "email" onChange={e => setLoginEmail(e.target.value)} />
-        <input className="form-control"placeholder = "password" type="password" onChange={e => setLoginPassword (e.target.value)}/>
-        <button onClick={login} >Submit</button> 
+          <h1>Login</h1>
+          <input className="form-control" placeholder="email" onChange={e => setLoginEmail(e.target.value)} />
+          <input className="form-control" placeholder="password" type="password" onChange={e => setLoginPassword(e.target.value)} />
+          <button onClick={login} >Submit</button>
         </div>
       </div>
     </>
