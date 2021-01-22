@@ -1,16 +1,20 @@
-import React from "react" ; 
-import "./style.css" ;
+import React from "react";
+import "./style.css";
 
-function Header (){
+function Header() {
 
 
 
-    return(
+    return (
         <>
+            <nav className="navbar navbar-light bg-light">
+                <div className="container-fluid">
+                    <a className="navbar-brand" href="#">Welcome!</a>
+                </div>
+            </nav>
+        </>
 
-        </> 
-
-)
+    )
 
 
 

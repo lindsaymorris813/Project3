@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import Header from "../components/Header";
 
-function SearchRecipe (){
+function SearchRecipe() {
 
 
 
-    return(
+    return (
         <>
+            <Header />
+        </>
 
-        </> 
-
-)
+    )
 
 
 
