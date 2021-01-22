@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
+import RecipeCard from "./components/RecipeCard";
 
 function SearchRecipe() {
 
@@ -8,6 +9,7 @@ function SearchRecipe() {
     return (
         <>
             <Header />
+            <RecipeCard />
         </>
 
     )
