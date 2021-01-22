@@ -23,6 +23,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smoothiedb", {
 //--------------------------------Middleware Start----------------------------------------
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 // app.use(cors({
 //   origin: "http://localhost:3000",// <-- Location of the react app were connecting to
 //   credentials: true
@@ -41,7 +42,6 @@ require("./config/passport")(passport);
 
 //------------------------------------Routes-------------------------------------
 app.post("/api/login", (req, res, next) => {
-  console.log("We hit the route");
   passport.authenticate("local", (err, user) => {
     console.log("Authentication has began!");
     if (err) throw err;
@@ -50,11 +50,9 @@ app.post("/api/login", (req, res, next) => {
       req.logIn(user, err => {
         if (err) throw (err);
         res.send("Authentication successful");
-        console.log(req.user);
       });
     }
-  })
-  (req, res, next);
+  })(req, res, next);
 });
 
 app.post("/api/signup",(req, res) => {
