@@ -18,11 +18,14 @@ const Login = () => {
       },
       withCredentials: true,
       url: "/api/login",
-    }).then((res) => console.log(res)).catch(err => {
-      console.log(err)
+    }).then((res) => {
+      console.log(res);
+      if (res.data !== "Authentication successful") {
+        alert("Password or email is incorrect, try again.")
+      }
     })
-    console.log("V is cool peeps")
   };
+
   return (
     <>
       <Jumbotron />

@@ -1,6 +1,14 @@
 import React from "react";
 import "./style.css";
 
+<<<<<<< HEAD
+function Header (){
+    return(
+        <>
+        </> 
+
+)
+=======
 function Header() {
 
 
@@ -15,6 +23,7 @@ function Header() {
         </>
 
     )
+>>>>>>> b0799d7e499310f74fc2eb0110daa3ed3ae72fd9
 
 
 

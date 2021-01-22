@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
 const bodyParser = require("body-parser");
 const User = require("./models/user");
+// const routes = require("./routes");
 const app = express();
 
 //Connection to Mongoose - attn @V/Lindsay
@@ -41,19 +42,24 @@ require("./config/passport")(passport);
 //--------------------------------Middleware End--------------------------------------------------
 
 //------------------------------------Routes-------------------------------------
+// app.use(routes);
+
 app.post("/api/login", (req, res, next) => {
   passport.authenticate("local", (err, user) => {
     console.log("Authentication has began!");
     if (err) throw err;
-    if (!user) res.send("User doesnt exist!");
-    else {
+    if (!user) {
+      res.send("User does not exist");
+    } else {
       req.logIn(user, err => {
         if (err) throw (err);
         res.send("Authentication successful");
+        console.log("redirect");
       });
     }
   })(req, res, next);
 });
+
 
 app.post("/api/signup",(req, res) => {
   User.findOne({ email: req.body.email },
