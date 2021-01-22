@@ -31,35 +31,49 @@ const SignUp = () => {
     return (
         <>
             <Jumbotron />
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">@</span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 mt-5">
+                        <a class="sign-up-link text-center header-color" href="#">
+                            <h2>Sign Up Form</h2>
+                        </a>
+                    </div>
                 </div>
-                <input type="text" className="form-control" onChange={e => setSignupEmail(e.target.value)} placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
-                </input>
-            </div>
-            <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text">P</span>
+                <div class="row shadow p-3 m-3 rounded list-border">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <form class="login">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control shadow p-3 m-3 bg-white rounded" id="signup-email-input"
+                                    placeholder="Email" onChange={e => setSignupEmail(e.target.value)} ></input>
+                            </div>
+                            <div class="form-group mt-4">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control shadow p-3 m-3 bg-white rounded" id="signup-password-input"
+                                    placeholder="Password" onChange={e => setSignupPassword(e.target.value)}></input>
+                            </div>
+                            <div class="form-group mt-4">
+                                <label for="exampleInputFirstName1">First Name</label>
+                                <input type="text" class="form-control shadow p-3 m-3 bg-white rounded" id="first-name"
+                                    placeholder="First Name" onChange={e => setSignupFirst(e.target.value)}></input>
+                            </div>
+                            <div class="form-group mt-4">
+                                <label for="exampleInputLastName1">Last Name</label>
+                                <input type="text" class="form-control shadow p-3 m-3 bg-white rounded" id="last-name"
+                                    placeholder="Last Name" onChange={e => setSignupSecond(e.target.value)} ></input>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center clearfix">
+                                    <button type="submit" class="btn btn-dark active float-right" id="signup-btn" onClick={signup}>Sign Up</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="col-3"></div>
                 </div>
-                <input type="text" className="form-control" onChange={e => setSignupPassword(e.target.value)} placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
-                </input>
             </div>
-            <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text">F</span>
-                </div>
-                <input onChange={e => setSignupFirst(e.target.value)} type="text" className="form-control" id="first-name" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1">
-                </input>
-            </div>
-            <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                    <span className="input-group-text">L</span>
-                </div>
-                <input onChange={e => setSignupSecond(e.target.value)} type="text" className="form-control" id="last-name" placeholder="Last Name" aria-label="Last Name" aria-describedby="basic-addon1">
-                </input>
-            </div>
-            <button type="button" className="btn btn-outline-dark" onClick={signup} >Sign Up</button>
         </>
     );
 }
