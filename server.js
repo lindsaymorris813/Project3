@@ -10,7 +10,7 @@ const User = require("./models/user");
 // const routes = require("./routes");
 const app = express();
 
-//Connection to Mongoose - attn @V/Lindsay
+//----------Connection to Mongoose------------------
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smoothiedb", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -25,11 +25,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smoothiedb", {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(cors({
-//   origin: "http://localhost:3000",// <-- Location of the react app were connecting to
-//   credentials: true
-// }));
-
+//Using session to keep track of our User's that are logged in.
 app.use(session({
   secret: "catnip",
   resave: true,
@@ -41,7 +37,7 @@ app.use(passport.session());
 require("./config/passport")(passport);
 //--------------------------------Middleware End--------------------------------------------------
 
-//------------------------------------Routes-------------------------------------
+//------------------------------------Start API Routes-------------------------------------
 // app.use(routes);
 
 app.post("/api/login", (req, res, next) => {
@@ -59,7 +55,6 @@ app.post("/api/login", (req, res, next) => {
     }
   })(req, res, next);
 });
-
 
 app.post("/api/signup",(req, res) => {
   User.findOne({ email: req.body.email },
@@ -80,12 +75,12 @@ app.post("/api/signup",(req, res) => {
       }
     });
 });
-//-----------------------------End of Routes-----------------------------------------
+//-----------------------------End API Routes-----------------------------------------
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+// // Serve up static assets (usually on heroku)
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// }
 
 // Send every request to the React app
 // Define any API routes before this runs
