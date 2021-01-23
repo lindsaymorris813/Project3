@@ -9,7 +9,6 @@ import RecipeCard from "./components/RecipeCard";
 class App extends Component {
   render() {
     return (
-      
       <Router>
         <div className="App">
           <Route exact path="/login" component={Login} />
