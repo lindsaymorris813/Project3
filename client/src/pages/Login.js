@@ -8,7 +8,6 @@ import Jumbotron from "../components/Jumbotron";
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState("");
   const currentUser = useContext(UserContext);
   const history = useHistory();
 
@@ -28,7 +27,7 @@ const Login = () => {
       const emailLoggedIn = res.data.email;
       
       currentUser.onLogin(emailLoggedIn);
-      setLoggedIn(emailLoggedIn);
+     
       if (res.data === "Authentication successful"){
         history.push("/recipecard")
       } else {
@@ -83,7 +82,6 @@ return (
       </div>
     </>
       );
-      module.exports={loggedIn};
     }
 
 export default Login;

@@ -10,7 +10,7 @@ import UserContext from "./components/Context/UserContext";
 const App = () =>{
 const [emailID, setEmailID] = useState({
   email: "",
-  onLogin: (emailID) => setEmailID((o) => ({...o,email: emailID }))
+  onLogin: (emailID) => setEmailID((emailAuth) => ({...emailAuth,email: emailID }))
 });
 
     return (
