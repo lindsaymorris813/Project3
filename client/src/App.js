@@ -11,15 +11,13 @@ import SearchRecipe from "./pages/SearchRecipe.js";
 class App extends Component {
   render() {
     return (
-      <>
-      <SignUp />
-      <Login />
       <Router>
-      <Route exact path="/" component={Dashboard} />
-      <Route exact path="/addrecipe" component={AddRecipe} />
-      <Route exact path="/searchrecipe" component={SearchRecipe} />
+        <div className="App">
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/recipecard" component={RecipeCard} />
+        </div>
       </Router>
-      </>
     );
   }
 }

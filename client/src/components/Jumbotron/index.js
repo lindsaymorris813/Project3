@@ -6,10 +6,10 @@ function Jumbotron() {
 
     return (
         <>
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                    <h1 class="display-4">Juicy Smoothie</h1>
-                    <p class="lead">Healthy smoothies at your fingertips!</p>
+            <div className="jumbotron jumbotron-fluid">
+                <div className="container">
+                    <h1 className="display-4">Juicy Smoothie</h1>
+                    <p className="lead">Healthy smoothies at your fingertips!</p>
                 </div>
             </div>
         </>
