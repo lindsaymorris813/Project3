@@ -1,5 +1,4 @@
-.container{
-
-
-    background-image:"../../public/images/fruit.jpg";
+.jumbotron{
+    background: url("/images/fruit.jpg") no-repeat right center; 
+    
 }
