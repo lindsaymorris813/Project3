@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Jumbotron from "../components/Jumbotron";
+import Footer from "../components/Footer";
 
 const SignUp = () => {
     const [signupEmail, setSignupEmail] = useState("");
@@ -78,6 +79,7 @@ const SignUp = () => {
                     <div className="col-3"></div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }
