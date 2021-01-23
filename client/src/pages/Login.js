@@ -21,7 +21,7 @@ const Login = () => {
         password: loginPassword,
       },
       withCredentials: true,
-      url: "/api/login",
+      url: "/api/users/login",
     }).then((res) => {
       console.log(res);
       const emailLoggedIn = res.data.email;

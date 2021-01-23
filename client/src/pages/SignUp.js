@@ -23,7 +23,7 @@ const SignUp = () => {
                 firstName: signupFirst,
                 lastName: signupSecond,
             },
-            url: "/api/signup",
+            url: "/api/users/signup",
         }).then((res) => {
             console.log(res); 
             history.push("/login")
