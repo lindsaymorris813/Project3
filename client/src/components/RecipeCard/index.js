@@ -15,7 +15,7 @@ function RecipeCard() {
                             <h6>Ingredients:</h6>
                             <p className="card-text">example, orange juice, bananas, peanut butter, oat milk</p>
                             <p className="card-text"><small className="text-muted">Rating: 4/5</small></p>
-                            <button type="button" class="btn btn-danger btn-sm">Delete Recipe</button>
+                            <button type="button" className="btn btn-danger btn-sm">Delete Recipe</button>
                         </div>
                     </div>
                 </div>

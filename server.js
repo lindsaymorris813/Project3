@@ -14,7 +14,7 @@ const {existsSync, mkdirSync} = require("fs");
 
 require("dotenv").config();
 
-//Connection to Mongoose - attn @V/Lindsay
+//----------Connection to Mongoose------------------
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smoothiedb", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -26,9 +26,16 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smoothiedb", {
 });
 
 //--------------------------------Middleware Start----------------------------------------
+<<<<<<< HEAD
 app.use(bodyParser.json({limit:"10mb"}));
 app.use(bodyParser.urlencoded({limit:"10mb", extended: true }));
 
+=======
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//Using session to keep track of our User's that are logged in.
+>>>>>>> 6ec272b9767a4ff7aae629090c00fb045119fc8c
 app.use(session({
   secret: "catnip",
   resave: true,
@@ -40,7 +47,12 @@ app.use(passport.session());
 require("./config/passport")(passport);
 //--------------------------------Middleware End--------------------------------------------------
 
+<<<<<<< HEAD
 //------------------------------------Routes-------------------------------------
+=======
+//------------------------------------Start API Routes-------------------------------------
+// app.use(routes);
+>>>>>>> 6ec272b9767a4ff7aae629090c00fb045119fc8c
 
 app.post("/api/login", (req, res, next) => {
   passport.authenticate("local", (err, user) => {
@@ -57,7 +69,6 @@ app.post("/api/login", (req, res, next) => {
     }
   })(req, res, next);
 });
-
 
 app.post("/api/signup",(req, res) => {
   User.findOne({ email: req.body.email },
@@ -78,12 +89,12 @@ app.post("/api/signup",(req, res) => {
       }
     });
 });
-//-----------------------------End of Routes-----------------------------------------
+//-----------------------------End API Routes-----------------------------------------
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+// // Serve up static assets (usually on heroku)
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// }
 
 app.use(routes);
 
