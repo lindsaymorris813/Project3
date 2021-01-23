@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import UserContext from "../components/Context/UserContext";
 import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
 
@@ -8,6 +9,7 @@ import Footer from "../components/Footer";
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const currentUser = useContext(UserContext);
   const history = useHistory();
 
   const login = (event) => {
@@ -23,17 +25,28 @@ const Login = () => {
       url: "/api/login",
     }).then((res) => {
       console.log(res);
-      if (res.data !== "Authentication successful") {
-        alert("Password or email is incorrect, try again.")
-        history.push("/signup") //Test purposes currently
-      }else{
-        history.push("/dashboard"); //Test purposes currently.
+      const emailLoggedIn = res.data.email;
+      
+      currentUser.onLogin(emailLoggedIn);
+     
+      if (res.data === "Authentication successful"){
+        history.push("/recipecard")
+      } else {
+        alert ("Password or email is incorrect, try again or signup.");
+        history.push("/signup")
       }
-    })
-  };
+    //   if (res.data !== "Authentication successful") {
+    //     alert("Password or email is incorrect, try again.")
+    //     history.push("/signup") //Test purposes currently
+    //   }else{
+    //     history.push("/dashboard"); //Test purposes currently.
+    //   }
+    // })
+  });
+}
 
-  return (
-    <>
+return (
+  <>
       <Jumbotron />
       <div className="container">
         <div className="row">
@@ -70,6 +83,7 @@ const Login = () => {
       </div>
       <Footer />
     </>
-  )
-}
+      );
+    }
+
 export default Login;
