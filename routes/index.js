@@ -2,12 +2,17 @@ const path = require("path");
 const { unlinkSync } = require("fs");
 const router = require("express").Router();
 const { upload, uploadToCloudinary } = require("../controllers/upload");
+const User = require("../controllers/userController");
 
 
 router.post("/api/user/upload/",upload, async( {file}, res) => {
   try{
     const result = await uploadToCloudinary(file.path, { folder: "foo" });
     if(file) unlinkSync(file.path);
+    User.findOneAndUpdate({
+      where:{_id:req.user.id},
+      image:result.url
+    });
     res.json(result);
   }catch(error){
     console.log(error);
