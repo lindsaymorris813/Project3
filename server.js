@@ -30,8 +30,8 @@ app.use(bodyParser.urlencoded({limit:"10mb", extended: true }));
 
 app.use(session({
   secret: "catnip",
-  resave: true,
-  saveUninitialized: true
+  resave: false,
+  saveUninitialized: false
 }));
 app.use(cookieParser("catnip"));
 app.use(passport.initialize());

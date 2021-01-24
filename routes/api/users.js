@@ -4,6 +4,10 @@ const User = require("../../models/user");
 const { unlinkSync } = require("fs");
 const { upload, uploadToCloudinary } = require("../../controllers/uploadcontroller");
 
+//Matches with "/logout" === NEW CODE
+router.route("/logout")
+  .get(userController.logOut);
+
 // Matches with "/api/users/signup"
 router.route("/signup")
   .post(userController.signUp);
