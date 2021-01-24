@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const recipeController = require("../../controllers/recipeController");
 const ratingController = require("../../controllers/ratingController");
+const { unlinkSync } = require("fs");
+const { upload, uploadToCloudinary } = require("../../controllers/uploadcontroller");
 
 // Matches with "/api/recipes"
 router.route("/")
@@ -15,5 +17,19 @@ router.route("/:id")
 
 router.route("/:id/rating")
   .get(ratingController.getRating);
+
+router.route("/:id/upload", upload, async({ file, emailID }, res) => {
+  try {
+    const result = await uploadToCloudinary(file.path, { folder: "foo" });
+    if (file) unlinkSync(file.path);
+    await User.findOneAndUpdate({
+      where: { email: emailID },
+      image: result.url
+    });
+    res.send(result.url);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 module.exports = router;
