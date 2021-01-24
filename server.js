@@ -5,8 +5,13 @@ const PORT = process.env.PORT || 3001;
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const User = require("./models/user");
 const routes = require("./routes");
 const app = express();
+const path = require("path");
+const {existsSync, mkdirSync} = require("fs");
+
+require("dotenv").config();
 
 //----------Connection to Mongoose------------------
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smoothiedb", {
@@ -20,10 +25,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smoothiedb", {
 });
 
 //--------------------------------Middleware Start----------------------------------------
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit:"10mb"}));
+app.use(bodyParser.urlencoded({limit:"10mb", extended: true }));
 
-//Using session to keep track of our User's that are logged in.
 app.use(session({
   secret: "catnip",
   resave: true,
@@ -44,12 +48,10 @@ app.use(routes);
 //   app.use(express.static("client/build"));
 // }
 
-// Send every request to the React app
-// Define any API routes before this runs
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.use(routes);
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
+  var dir = path.join(__dirname,"tmp/");
+  if(!existsSync(dir)) mkdirSync(dir, 0744);
 });
