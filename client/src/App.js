@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp.js"
 import Login from "./pages/Login.js"
 import RecipeCard from "./components/RecipeCard";
 import UserContext from "./components/Context/UserContext";
+import Uploader from "./pages/Uploader";
 
 const App = () =>{
 const [emailID, setEmailID] = useState({
@@ -19,6 +20,7 @@ const [emailID, setEmailID] = useState({
         <div className="App">
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/uploader" component={Uploader} />
           <Route exact path="/recipecard" component={RecipeCard} />
         </div>
         </UserContext.Provider>

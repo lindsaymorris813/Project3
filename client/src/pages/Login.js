@@ -29,7 +29,7 @@ const Login = () => {
       currentUser.onLogin(emailLoggedIn);
      
       if (res.data === "Authentication successful"){
-        history.push("/recipecard")
+        history.push("/uploader")
       } else {
         alert ("Password or email is incorrect, try again or signup.");
         history.push("/signup")
