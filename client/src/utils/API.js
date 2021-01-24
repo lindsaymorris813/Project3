@@ -15,7 +15,7 @@ export default {
       withCredentials:true
     };
     formData.append("file",file);
-    return axios.post("/api/user/upload", formData, config);
+    return axios.post("/api/users/upload", formData, config);
   },
   //get all Recipes
   getRecipes: function() {

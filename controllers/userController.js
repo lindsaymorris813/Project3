@@ -4,7 +4,7 @@ const User = require("../models/user");
 
 module.exports = {
   //Login route
-  logIn: function(req, res, next) {
+  logIn: function (req, res, next) {
     passport.authenticate("local", (err, user) => {
       console.log("Authentication has began!");
       if (err) throw err;
@@ -20,7 +20,7 @@ module.exports = {
     })(req, res, next);
   },
   //signUp route for creating new user
-  signUp: function(req,res){
+  signUp: function (req, res) {
     User.findOne({ email: req.body.email },
       async function (err, doc) {
         if (err) throw err;
