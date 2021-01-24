@@ -48,8 +48,6 @@ app.use(routes);
 //   app.use(express.static("client/build"));
 // }
 
-app.use(routes);
-
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
   var dir = path.join(__dirname,"tmp/");
