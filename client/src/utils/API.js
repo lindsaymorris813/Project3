@@ -7,7 +7,7 @@ export default {
       withCredentials:true
     };
     formData.append("file",file);
-    return axios.post("/api/recipe/upload",formData,config);
+    return axios.post("/api/recipes/:id/upload",formData,config);
   },
   userImageUpload : (file) => {
     const formData = new FormData();
