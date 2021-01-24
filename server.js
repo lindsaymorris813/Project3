@@ -4,7 +4,6 @@ const session = require("express-session");
 const PORT = process.env.PORT || 3001;
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
-const bcrypt = require("bcryptjs");
 const bodyParser = require("body-parser");
 const User = require("./models/user");
 const routes = require("./routes");
@@ -40,43 +39,8 @@ app.use(passport.session());
 require("./config/passport")(passport);
 //--------------------------------Middleware End--------------------------------------------------
 
-//------------------------------------Routes-------------------------------------
-
-app.post("/api/login", (req, res, next) => {
-  passport.authenticate("local", (err, user) => {
-    console.log("Authentication has began!");
-    if (err) throw err;
-    if (!user) {
-      res.send("User does not exist");
-    } else {
-      req.logIn(user, err => {
-        if (err) throw (err);
-        res.send("Authentication successful");
-        console.log("redirect");
-      });
-    }
-  })(req, res, next);
-});
-
-app.post("/api/signup",(req, res) => {
-  User.findOne({ email: req.body.email },
-    async function (err, doc) {
-      if (err) throw err;
-      if (doc) res.send("Sorry, this user already exists!");
-      if (!doc) {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
-
-        const newUser = new User({
-          email: req.body.email,
-          password: hashedPassword,
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-        });
-        await newUser.save();
-        res.send("Account has been created!");
-      }
-    });
-});
+//------------------------------------Start API Routes-------------------------------------
+app.use(routes);
 //-----------------------------End API Routes-----------------------------------------
 
 // // Serve up static assets (usually on heroku)

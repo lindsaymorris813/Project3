@@ -6,6 +6,6 @@ const options = {
   api_key: process.env.CLOUDINARY_KEY,
   api_secret: process.env.CLOUDINARY_SECRET
 };
-console.log(process.env.CLOUDINARY_KEY);
+
 cloudinary.config(options);
 module.exports = cloudinary;
