@@ -1,15 +1,21 @@
 import React, { useState } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import "./dashboard.css";
 
-function Dashboard (){
+function Dashboard() {
 
 
 
-    return(
+    return (
         <>
+            <Header />
 
-        </> 
+            
+            <Footer />
+        </>
 
-)
+    )
 
 
 
