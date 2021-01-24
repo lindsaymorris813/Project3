@@ -4,7 +4,7 @@ const router = require("express").Router();
 const { upload, uploadToCloudinary } = require("../controllers/upload");
 
 
-router.post("/api/user/upload",upload, async( {file}, res) => {
+router.post("/api/user/upload/",upload, async( {file}, res) => {
   try{
     const result = await uploadToCloudinary(file.path, { folder: "foo" });
     if(file) unlinkSync(file.path);
