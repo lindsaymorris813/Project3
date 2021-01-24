@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
+import "./profile.css";
 
 function Profile() {
 
@@ -21,10 +22,11 @@ function Profile() {
                                     <div className="col">
                                         <h3>User Profile</h3>
                                         <div className="row">
-                                            <div className="col-3">
-                                            Here's where to put photo upload info. Display current photo, with link to page to upload new photo.
+                                            <div className="col-5 ">
+                                                <img className="smoothie rounded list-border" src="images/fruitTray.jpg" ></img>
+                                                <button type="button" class="btn btn-info btn-block">Change your picture</button>
                                             </div>
-                                            <div className="col-9">
+                                            <div className="col-7 p-3">
                                                 <div>
                                                     <h5>Username: User's username here</h5>
                                                 </div>
