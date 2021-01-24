@@ -1,39 +1,43 @@
 const db = require("../models");
 const bcrypt = require("bcryptjs");
+const passport = require("passport");
+const User = require("../models/user");
 
 module.exports = {
   //Login route
   logIn: function(req, res, next) {
-
-
+    passport.authenticate("local", (err, user) => {
+      console.log("Authentication has began!");
+      if (err) throw err;
+      if (!user) {
+        res.send("User does not exist");
+      } else {
+        req.logIn(user, err => {
+          if (err) throw (err);
+          res.send("Authentication successful");
+          console.log("redirect");
+        });
+      }
+    })(req, res, next);
   },
   //signUp route for creating new user
   signUp: function(req,res){
-    db.User
-      .create(req.body)
-      .then(() => {
-        res.redirect(307, "/api/login");
-      })
-      .then(dbModel => res.json(dbModel))
-      .catch(err=>res.status(422).json(err));
-  },
-  //logout route for user
-  logOut:function(req,res){
+    User.findOne({ email: req.body.email },
+      async function (err, doc) {
+        if (err) throw err;
+        if (doc) res.send("Sorry, this user already exists!");
+        if (!doc) {
+          const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-  },
-  //route getting all your recipes
-  getUserRecipes:function(req,res){
-    db.Recipe
-      .findAll({userID:req.params.id})
-      .then(dbModel => res.json(dbModel))
-      .catch(err=>res.status(422).json(err));
-  },
-  //route delete recipe based on the user id and recipe id
-  deleteRecipe:function(req,res){
-
-  },
-
-
-
-
+          const newUser = new User({
+            email: req.body.email,
+            password: hashedPassword,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+          });
+          await newUser.save();
+          res.send("Account has been created!");
+        }
+      });
+  }
 };
