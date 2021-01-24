@@ -8,7 +8,7 @@ const userSchema = new Schema ({
   password: { type: String, required: "Please enter a Password" },
   firstName: { type: String, required: "Please enter a First Name"},
   lastName: { type: String, required: "Please enter a Last Name"},
-  image: { type: String },
+  image: { type: String, default: ""},
   birthday: { type: Date },
   bio: { type: String }
 });

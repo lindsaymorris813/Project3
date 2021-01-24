@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard.js";
 import AddRecipe from "./pages/AddRecipe.js";
 import SearchRecipe from "./pages/SearchRecipe.js";
 import UserContext from "./components/Context/UserContext";
+import Uploader from "./pages/Uploader";
 
 const App = () =>{
 const [emailID, setEmailID] = useState({
@@ -27,6 +28,7 @@ const [emailID, setEmailID] = useState({
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/addrecipe" component={AddRecipe} />
           <Route exact path="/searchrecipe" component={SearchRecipe} />
+          <Route exact path="/uploader" component={Uploader} />
         </div>
         </UserContext.Provider>
       </Router>

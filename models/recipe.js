@@ -16,7 +16,7 @@ const recipeSchema = new Schema ({
   editComments: Array
 });
 
-UserSchema.methods.lastEdited = function() {
+recipeSchema.methods.lastEdited = function() {
   this.lastEditedDate = Date.now();
 
   return this.lastEditedDate;

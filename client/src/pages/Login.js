@@ -22,15 +22,15 @@ const Login = () => {
         password: loginPassword,
       },
       withCredentials: true,
-      url: "/api/login",
+      url: "/api/users/login",
     }).then((res) => {
       console.log(res);
       const emailLoggedIn = res.data.email;
 
       currentUser.onLogin(emailLoggedIn);
-
-      if (res.data === "Authentication successful") {
-        history.push("/dashboard")
+     
+      if (res.data === "Authentication successful"){
+        history.push("/uploader")
       } else {
         alert("Password or email is incorrect, try again or signup.");
         history.push("/signup")
