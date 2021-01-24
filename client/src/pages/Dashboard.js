@@ -12,13 +12,19 @@ function Dashboard() {
         <>
             <Header />
             <div className="row">
-                <div className="col-3">
-                    <Nav />
-                    
+                <Nav />
+                <div className="col-9">
+                    <div className="container">
+                        <div className="row shadow p-3 m-3 rounded list-border">
+                            <div className="col">
+                                
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <Footer />
+
+            {/* <Footer /> */}
         </>
 
     )
