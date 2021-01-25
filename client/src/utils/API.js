@@ -28,5 +28,9 @@ export default {
   //get Rating of recipe
   getRating: function() {
     return axios.get("/api/rating");
+  },
+  //get UserInfo
+  getUserInfo: function(){
+    return axios.get("/api/users/userinfo");
   }
 };

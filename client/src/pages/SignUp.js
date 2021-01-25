@@ -74,9 +74,9 @@ const SignUp = () => {
                                 </div>
                             </div>
                             <br />
-                            <div class="row mt-3">
-                                <div class="col-12">
-                                    <p class="text-center">Or log in <a href="/login">here</a></p>
+                            <div className="row mt-3">
+                                <div className="col-12">
+                                    <p className="text-center">Or log in <a href="/login">here</a></p>
                                 </div>
                             </div>
                         </form>
