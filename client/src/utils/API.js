@@ -45,9 +45,13 @@ export default {
   addIngredient: function(name) {
     return axios.get("api/ingredients", name);
   },
-  //get Rating of recipe
-  getRating: function() {
-    return axios.get("/api/rating");
+  //add Rating of recipe by ID
+  addRating: function(id, rating) {
+    return axios.post("/api/recipes/" + id + "rating", rating);
+  },
+  //get Rating of recipe by ID
+  getRating: function (id) {
+    return axios.get("/api/recipes/" + id + "rating");
   },
   //get UserInfo
   getUserInfo: function(){
