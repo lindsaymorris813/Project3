@@ -21,25 +21,25 @@ function SearchRecipe() {
                             <div className="col-10">
                                 <form className="login">
                                     <div className="form-group">
-                                        <label htmlFor="searchRecipe"><h2>Search for a Recipe</h2></label>
+                                        <label htmlhtmlFor="searchRecipe"><h2>Search for a Recipe</h2></label>
                                         <input type="text" className="form-control shadow p-3 m-3 bg-white rounded" id="recipe-search"
                                             placeholder="Search Input"></input>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></input>
-                                        <label class="form-check-label" for="inlineCheckbox1">Low Sugar</label>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></input>
+                                        <label className="form-check-label" htmlFor="inlineCheckbox1">Low Sugar</label>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"></input>
-                                        <label class="form-check-label" for="inlineCheckbox2">High Protein</label>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"></input>
+                                        <label className="form-check-label" htmlFor="inlineCheckbox2">High Protein</label>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></input>
-                                        <label class="form-check-label" for="inlineCheckbox1">Low Carb</label>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></input>
+                                        <label className="form-check-label" htmlFor="inlineCheckbox1">Low Carb</label>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"></input>
-                                        <label class="form-check-label" for="inlineCheckbox2">Weight Loss</label>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"></input>
+                                        <label className="form-check-label" htmlFor="inlineCheckbox2">Weight Loss</label>
                                     </div>
 
                                     <div className="row">

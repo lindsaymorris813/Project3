@@ -24,7 +24,7 @@ function Profile() {
                                         <div className="row">
                                             <div className="col-5 ">
                                                 <img className="smoothie rounded list-border" src="images/fruitTray.jpg" ></img>
-                                                <button type="button" class="btn btn-info btn-block">Change your picture</button>
+                                                <button type="button" className="btn btn-info btn-block">Change your picture</button>
                                             </div>
                                             <div className="col-7 p-3">
                                                 <div>
