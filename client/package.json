@@ -13,14 +13,16 @@
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
-    "eslint": "5.12.0",
+    "eslint": "^5.12.0",
+    "eslint-plugin-react": "^7.22.0",
     "nodemon": "^1.18.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint": "eslint --fix ."
   },
   "browserslist": [
     ">0.2%",

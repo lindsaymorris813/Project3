@@ -5,16 +5,16 @@ function Footer() {
 
 
 
-    return (
+  return (
         <>
             <footer className="footer">
-                <span>Made for you!</span>
+              <span>Made for you!</span>
             </footer>
         </>
 
-    )
+  );
 
 
 
 }
-export default Footer 
+export default Footer;
