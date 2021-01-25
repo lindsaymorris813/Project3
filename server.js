@@ -29,9 +29,9 @@ app.use(bodyParser.json({limit:"10mb"}));
 app.use(bodyParser.urlencoded({limit:"10mb", extended: true }));
 
 app.use(session({
-  secret: "catnip",
-  resave: true,
-  saveUninitialized: true
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
 }));
 app.use(cookieParser("catnip"));
 app.use(passport.initialize());
@@ -47,8 +47,6 @@ app.use(routes);
 // if (process.env.NODE_ENV === "production") {
 //   app.use(express.static("client/build"));
 // }
-
-app.use(routes);
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

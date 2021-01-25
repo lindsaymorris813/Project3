@@ -3,12 +3,13 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import UserContext from "../components/Context/UserContext";
 import Jumbotron from "../components/Jumbotron";
+import Footer from "../components/Footer";
 
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const currentUser = useContext(UserContext);
+  const email = useContext(UserContext);
   const history = useHistory();
 
   const login = (event) => {
@@ -25,27 +26,27 @@ const Login = () => {
     }).then((res) => {
       console.log(res);
       const emailLoggedIn = res.data.email;
-      
-      currentUser.onLogin(emailLoggedIn);
+
+      email.onLogin(emailLoggedIn);
      
       if (res.data === "Authentication successful"){
         history.push("/uploader")
       } else {
-        alert ("Password or email is incorrect, try again or signup.");
+        alert("Password or email is incorrect, try again or signup.");
         history.push("/signup")
       }
-    //   if (res.data !== "Authentication successful") {
-    //     alert("Password or email is incorrect, try again.")
-    //     history.push("/signup") //Test purposes currently
-    //   }else{
-    //     history.push("/dashboard"); //Test purposes currently.
-    //   }
-    // })
-  });
-}
+      //   if (res.data !== "Authentication successful") {
+      //     alert("Password or email is incorrect, try again.")
+      //     history.push("/signup") //Test purposes currently
+      //   }else{
+      //     history.push("/dashboard"); //Test purposes currently.
+      //   }
+      // })
+    });
+  }
 
-return (
-  <>
+  return (
+    <>
       <Jumbotron />
       <div className="container">
         <div className="row">
@@ -74,14 +75,20 @@ return (
                   <button type="submit" className="btn btn-dark active float-right" id="login-btn" onClick={login}>Submit</button>
                 </div>
               </div>
-
+              <br />
+              <div className="row mt-3">
+                <div className="col-12">
+                  <p className="text-center">Or sign up <a href="/signup">here</a></p>
+                </div>
+              </div>
             </form>
           </div>
           <div className="col-3"></div>
         </div>
       </div>
+      <Footer />
     </>
-      );
-    }
+  );
+}
 
 export default Login;

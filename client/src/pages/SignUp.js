@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Jumbotron from "../components/Jumbotron";
+import Footer from "../components/Footer";
 
 const SignUp = () => {
     const [signupEmail, setSignupEmail] = useState("");
     const [signupPassword, setSignupPassword] = useState("");
     const [signupFirst, setSignupFirst] = useState("");
     const [signupSecond, setSignupSecond] = useState("");
-    const history = useHistory(); 
+    const history = useHistory();
 
 
 
@@ -25,7 +26,7 @@ const SignUp = () => {
             },
             url: "/api/users/signup",
         }).then((res) => {
-            console.log(res); 
+            console.log(res);
             history.push("/login")
         });
     };
@@ -72,12 +73,19 @@ const SignUp = () => {
                                     <button type="submit" className="btn btn-dark active float-right" id="signup-btn" onClick={signup}>Sign Up</button>
                                 </div>
                             </div>
-
+                            <br />
+                            <div className="row mt-3">
+                                <div className="col-12">
+                                    <p className="text-center">Or log in <a href="/login">here</a></p>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div className="col-3"></div>
                 </div>
+
             </div>
+            <Footer />
         </>
     );
 }

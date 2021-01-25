@@ -7,7 +7,7 @@ export default {
       withCredentials:true
     };
     formData.append("file",file);
-    return axios.post("/api/recipe/upload",formData,config);
+    return axios.post("/api/recipes/:id/upload",formData,config);
   },
   userImageUpload : (file) => {
     const formData = new FormData();
@@ -15,7 +15,7 @@ export default {
       withCredentials:true
     };
     formData.append("file",file);
-    return axios.post("/api/user/upload", formData, config);
+    return axios.post("/api/users/upload", formData, config);
   },
   //get all Recipes
   getRecipes: function() {
@@ -28,5 +28,9 @@ export default {
   //get Rating of recipe
   getRating: function() {
     return axios.get("/api/rating");
+  },
+  //get UserInfo
+  getUserInfo: function(){
+    return axios.get("/api/users/userinfo");
   }
 };
