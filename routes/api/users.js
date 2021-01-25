@@ -17,7 +17,7 @@ router
   .route("/login")
   .post(userController.logIn);
 
-//UserInfo
+// Matches with "/api/users"
 router.route("/")
   .get(userController.userInfo);
 

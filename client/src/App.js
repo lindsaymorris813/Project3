@@ -9,7 +9,6 @@ import Dashboard from "./pages/Dashboard.js";
 import AddRecipe from "./pages/AddRecipe.js";
 import SearchRecipe from "./pages/SearchRecipe.js";
 import UserContext from "./components/Context/UserContext";
-// import Uploader from "./pages/Uploader";
 import Authenticated from "./components/Authenticated";
 
 

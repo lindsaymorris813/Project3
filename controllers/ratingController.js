@@ -33,5 +33,11 @@ module.exports = {
       .findOneAndUpdate({ _id: {where: { recipeId: req.params.id, userId: req.user.id }}}, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  deleteRatings: function(req, res) {
+    Rating
+      .deleteMany({ $match: { recipeId: req.params.id }})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };

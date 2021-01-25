@@ -10,22 +10,23 @@ function Dashboard() {
   const { email } = useContext(UserContext);
   const [recipeOfWeek, setRecipeOfWeek] = useState([]);
 
-  // const loadROW = () => {
-  //   API.getROW()
-  //     .then((res) => {
-  //       API.findRecipe(res.data[0]._id)
-  //         .then((res) => {
-  //           setRecipeOfWeek(res.data);
-  //           console.log(res.data);
-  //         })
-  //         .catch(err => console.log(err));
-  //     })
-  //     .catch(err => console.log(err));
-  // };
+  const loadROW = () => {
+    API.getROW()
+      .then((res) => {
+        console.log(res.data[0]._id);
+        API.findRecipe(res.data[0]._id)
+          .then((res) => {
+            console.log(res.data);
+            setRecipeOfWeek(res.data);
+          })
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+  };
 
-  // useEffect(() => {
-  //   loadROW();
-  // });
+  useEffect(() => {
+    loadROW();
+  });
 
   return (
     <>

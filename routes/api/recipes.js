@@ -15,10 +15,12 @@ router.route("/:id")
   .put(recipeController.updateRecipe)
   .delete(recipeController.deleteRecipe);
 
+// Matches with "/api/recipes/:id/rating"
 router.route("/:id/rating")
   .get(ratingController.getRating)
   .post(ratingController.addRating)
-  .put(ratingController.updateRating);
+  .put(ratingController.updateRating)
+  .delete(ratingController.deleteRatings);
 
 router.route("/:id/upload", upload, async(req, res) => {
   try {
