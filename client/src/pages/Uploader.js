@@ -13,7 +13,6 @@ function Uploader () {
     const { data: image } = await API.userImageUpload(file);
     setImage(image);
   };
-
   return (
     <div className="App">
       <header className="App-header">
