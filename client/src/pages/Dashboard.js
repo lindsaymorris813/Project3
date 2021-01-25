@@ -4,22 +4,21 @@ import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import "./dashboard.css";
 import UserContext from "../components/Context/UserContext";
-import { Redirect } from "react-router-dom";
 import API from "../utils/API";
 
 function Dashboard() {
-  // const { email } = useContext(UserContext);
-  // const [recipeOfWeek, setRecipeOfWeek] = useState([]);
+  const { email } = useContext(UserContext);
+  const [recipeOfWeek, setRecipeOfWeek] = useState([]);
 
-  // async function loadROW() {
-  //   await API.getROW()
-  //     .then(res => setRecipeOfWeek(res.data))
-  //     .catch(err => console.log(err));
-  // }
+  async function loadROW() {
+    await API.getROW()
+      .then(res => setRecipeOfWeek(res.data))
+      .catch(err => console.log(err));
+  }
 
-  // useEffect(() => {
-  //   loadROW();
-  // });
+  useEffect(() => {
+    loadROW();
+  });
 
   return (
     <>

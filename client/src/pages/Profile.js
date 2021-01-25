@@ -8,7 +8,7 @@ import UserContext from "../components/Context/UserContext";
 
 function Profile() {
   const { email } = useContext(UserContext);
-  const [image, setImage] = useState("images/fruitTray.jpg");
+  const [image, setImage] = useState();
   const [userData, setUserData] = useState({});
 
   //UseEffect
@@ -21,7 +21,7 @@ function Profile() {
 
   const uploadImage = async (file) => {
     const { data: image } = await API.userImageUpload(file);
-    setImage(image);
+    setUserData({image: image});
   };
 
   const handleChange = (e) => {
@@ -43,7 +43,7 @@ function Profile() {
                     <h3>User Profile</h3>
                     <div className="row">
                       <div className="col-5">
-                        <img className="smoothie rounded list-border" src={image} alt={userData.firstName} secure="false" width="300" crop="scale" ></img>
+                        <img className="smoothie rounded list-border" src={userData.image} alt={userData.firstName} secure="false" width="300" crop="scale" ></img>
                         <label className="file-label">
                           {/* Input with type of file, allows to grab file from computer and upload */}
                           {/* handle change whenever file has been added or uploaded */}
