@@ -23,10 +23,8 @@ router.post("/upload", upload, async(req, res) => {
   try{
     const result = await uploadToCloudinary(req.file.path, { folder: "foo" });
     if(req.file) unlinkSync(req.file.path);
-    await User.findOne({
-      where:{email: req.user.email},
-      image:result.url,
-    });
+    let test = await User.findOneAndUpdate({email: req.user.email}, {image:result.url}, {new:true});
+    console.log(test);
     res.send(result.url);
   }catch(error){
     console.log(error);
