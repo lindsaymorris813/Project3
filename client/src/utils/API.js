@@ -19,7 +19,7 @@ export default {
   },
   //get Recipes from Search
   searchRecipes: function(query) {
-    return axios.get("/api/recipes");
+    return axios.get("/api/recipes", query);
   },
   //add new Recipe
   addRecipe: function(recipeData) {
@@ -53,8 +53,16 @@ export default {
   getRating: function (id) {
     return axios.get("/api/recipes/" + id + "rating");
   },
+  //get Recipe of the Week by Rating
+  getROW: function() {
+    return axios.get("/api/ratings");
+  },
   //get UserInfo
   getUserInfo: function(){
     return axios.get("/api/users/userinfo");
+  },
+  //update User profile image
+  uploadProfilImage: function(id, imageURL) {
+    return axios.post("/api/users/:id/upload", imageURL);
   }
 };
