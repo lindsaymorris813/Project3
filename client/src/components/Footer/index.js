@@ -1,16 +1,18 @@
-import React from "react" ; 
-import "./style.css" ;
+import React from "react";
+import "./style.css";
 
-function Footer (){
+function Footer() {
 
 
 
-    return(
+    return (
         <>
+            <footer className="footer">
+                <span>Made for you!</span>
+            </footer>
+        </>
 
-        </> 
-
-)
+    )
 
 
 

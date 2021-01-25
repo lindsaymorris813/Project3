@@ -1,35 +1,11 @@
-const path = require("path");
-const { unlinkSync } = require("fs");
 const router = require("express").Router();
-const { upload, uploadToCloudinary } = require("../controllers/upload");
-const User = require("../controllers/userController");
-
-
-router.post("/api/user/upload/",upload, async( {file}, res) => {
-  try{
-    const result = await uploadToCloudinary(file.path, { folder: "foo" });
-    if(file) unlinkSync(file.path);
-    User.findOneAndUpdate({
-      where:{_id:req.user.id},
-      image:result.url
-    });
-    res.json(result);
-  }catch(error){
-    console.log(error);
-  }
-});
-
-
-router.get("*",(_,res)=>{
-  res.sendFile(path.join(__dirname,"../client/build/index.html"));
-});
-// const apiRoutes = require("./api");
 const apiRoutes = require("./api");
+
+// router.get("*",(_,res)=>{
+//   res.sendFile(path.join(__dirname,"../client/build/index.html"));
+// });
 
 // API Routes
 router.use("/api", apiRoutes);
-// If no API routes are hit, send the React app
-// router.use(function(req, res) {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
+
 module.exports = router;

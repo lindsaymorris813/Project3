@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 function Header() {
@@ -7,10 +8,11 @@ function Header() {
 
     return (
         <>
-            <nav className="navbar navbar-light" style="background-color: #145c9e;">
-                <a className="navbar-brand" href="#">Welcome!</a>
-                <button className="btn btn-outline-info" type="button">Logout</button>
-                <button className="btn btn-light" type="button">Search Recipes</button>
+            <nav className="navbar navbar-light">
+                <div className="navbar-brand">Welcome!</div>
+                <form class="form-inline">
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Logout</button>
+                </form>
             </nav>
         </>
 

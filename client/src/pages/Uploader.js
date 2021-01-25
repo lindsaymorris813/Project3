@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Image } from 'cloudinary-react';
 import API from "../utils/API";
+
 function Uploader () {
     // grabs image you have saved in cloudinary image folder
-  const [image, setImage] = useState("foo/v64ml1iqiztbmvx7vqtx");
+  const [image, setImage] = useState("");
   const handleChange = (e) => {
     // can do multiple files, so will give back an Array, we want to grab back the first, pass it through to API upload
     uploadImage(e.target.files[0]);
-  };
+  }; 
+
   const uploadImage = async (file) => {
     const { data: image } = await API.userImageUpload(file);
     setImage(image);
@@ -16,7 +17,7 @@ function Uploader () {
     <div className="App">
       <header className="App-header">
         {/* //tell it the cloudName and grab public ID from state */}
-        <Image cloudName="jumpsacademy" publicId={image} secure="true" width="300" crop="scale" />
+        <img src={image} secure="false" alt={image} width="300" crop="scale" />
         <p>
           Upload an image example
         </p>
