@@ -1,20 +1,26 @@
+const { DateTime } = require("luxon");
 const Rating = require("../models/rating");
 
 module.exports = {
   //route for getting smoothy of the week
   getROW: function(req, res){
-    Rating
-      .aggregate([{$match: { dateOfRating: {$gt: new Date(Date.now() - 12096e5)}}},
-        {$group: {_id: "$recipeId", avgRating: {$avg: "$rating"}}}, {$sort: { avgRating: -1 }}])
-      .then(dbModel=>resJson(dbModel))
+    const week = DateTime.local().minus({ days: 7 });
+    console.log(week);
+    Rating.aggregate([
+      {$match: { dateOfRating: {$gte: week }}},
+      {$group: {_id: "$recipeId", avgRating: {$avg: "$rating"}}}
+    ])
+      .then(dbModel=>res.json(dbModel))
       .catch(err=>res.status(422).json(err));
   },
+  //route to get rating for recipe based on ID
   getRating: function(req, res){
     Rating
       .aggregate([{$group: {_id: "$recipeId", avgRating: {$avg:"$rating"}}}])
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  //route to add rating to a recipe based on ID
   addRating: function(req, res){
     Rating
       .create(req.body)
