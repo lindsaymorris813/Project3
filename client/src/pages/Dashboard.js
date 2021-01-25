@@ -10,15 +10,22 @@ function Dashboard() {
   const { email } = useContext(UserContext);
   const [recipeOfWeek, setRecipeOfWeek] = useState([]);
 
-  const loadROW = async () => {
-    await API.getROW()
-      .then(res => setRecipeOfWeek(res.data))
-      .catch(err => console.log(err));
-  };
+  // const loadROW = () => {
+  //   API.getROW()
+  //     .then((res) => {
+  //       API.findRecipe(res.data[0]._id)
+  //         .then((res) => {
+  //           setRecipeOfWeek(res.data);
+  //           console.log(res.data);
+  //         })
+  //         .catch(err => console.log(err));
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
-  useEffect(() => {
-    loadROW();
-  });
+  // useEffect(() => {
+  //   loadROW();
+  // });
 
   return (
     <>
@@ -39,7 +46,6 @@ function Dashboard() {
               <div className="col shadow p-3 m-3 rounded list-border">
                 <div className="container">
                   <h2>Smoothie of the Week</h2>
-                  <h4>{recipeOfWeek[0].title}</h4>
                 </div>
               </div>
               <div className="col shadow p-3 m-3 rounded list-border">
