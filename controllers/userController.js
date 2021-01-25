@@ -3,6 +3,19 @@ const passport = require("passport");
 const User = require("../models/user");
 
 module.exports = {
+
+  //Logout route === NEW CODE
+  logOut: function (req, res) {
+    req.logout();
+    req.session.destroy(function (err){
+      if(err) {
+        return next (err);
+      }
+      console.log(req.user);
+      return res.send({success: true});
+    });
+  },
+
   //Login route
   logIn: function (req, res, next) {
     passport.authenticate("local", (err, user) => {
@@ -14,11 +27,12 @@ module.exports = {
         req.logIn(user, err => {
           if (err) throw (err);
           res.send("Authentication successful");
-          console.log("redirect");
+          console.log(req.user);
         });
       }
     })(req, res, next);
   },
+
   //signUp route for creating new user
   signUp: function (req, res) {
     User.findOne({ email: req.body.email },
