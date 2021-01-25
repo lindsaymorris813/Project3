@@ -11,7 +11,7 @@ module.exports = {
   //route to return recipies based on search categories
   searchRecipe: function(req,res){
     Recipe
-      .findAll(req.query)//have to identify how to add in search criteria here.
+      .find(req.query)//have to identify how to add in search criteria here.
       .sort({ rating: -1 })
       .then(dbModel=>res.json(dbModel))
       .catch(err=>res.status(422).json(err));
@@ -19,8 +19,7 @@ module.exports = {
   //delete a recipe based on its ID
   deleteRecipe: function(req, res) {
     Recipe
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
+      .findOneAndDelete({ _id: req.params.id })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
