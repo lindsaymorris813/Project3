@@ -1,15 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import "./dashboard.css";
 import UserContext from "../components/Context/UserContext";
-
+import API from "../utils/API";
 
 function Dashboard() {
-
   const { email } = useContext(UserContext);
-  console.log(email);
+  const [recipeOfWeek, setRecipeOfWeek] = useState([]);
+
+  // const loadROW = () => {
+  //   API.getROW()
+  //     .then((res) => {
+  //       API.findRecipe(res.data[0]._id)
+  //         .then((res) => {
+  //           setRecipeOfWeek(res.data);
+  //           console.log(res.data);
+  //         })
+  //         .catch(err => console.log(err));
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+
+  // useEffect(() => {
+  //   loadROW();
+  // });
 
   return (
     <>
@@ -20,7 +36,7 @@ function Dashboard() {
           <div className="container">
             <div className="row shadow p-3 m-3 rounded list-border">
               <div className="col-3">
-                <img className="smoothie" src="images/fruitTray.jpg" ></img>
+                <img className="smoothie" src="images/fruitTray.jpg" alt="" ></img>
               </div>
               <div className="col-9">
                 <h3>Dashboard heading. What else here?</h3>
@@ -28,7 +44,9 @@ function Dashboard() {
             </div>
             <div className="row ">
               <div className="col shadow p-3 m-3 rounded list-border">
-                Smoothie of the week
+                <div className="container">
+                  <h2>Smoothie of the Week</h2>
+                </div>
               </div>
               <div className="col shadow p-3 m-3 rounded list-border">
                 My Recipes
@@ -37,10 +55,8 @@ function Dashboard() {
           </div>
         </div>
       </div>
-
       <Footer />
     </>
-
   );
 }
 
