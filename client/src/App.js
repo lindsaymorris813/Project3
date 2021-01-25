@@ -1,7 +1,7 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
+import "./GlobalStyles.css";
 import SignUp from "./pages/SignUp.js"
 import Login from "./pages/Login.js"
 import RecipeCard from "./components/RecipeCard";
