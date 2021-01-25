@@ -49,22 +49,22 @@ const SignUp = () => {
                     <div className="col-6">
                         <form className="login">
                             <div className="form-group">
-                                <label htmlhtmlFor="exampleInputEmail1">Email address</label>
+                                <label htmlFor="exampleInputEmail1">Email address</label>
                                 <input type="email" className="form-control shadow p-3 m-3 bg-white rounded" id="signup-email-input"
                                     placeholder="Email" onChange={e => setSignupEmail(e.target.value)} ></input>
                             </div>
                             <div className="form-group mt-4">
-                                <label htmlhtmlFor="exampleInputPassword1">Password</label>
+                                <label htmlFor="exampleInputPassword1">Password</label>
                                 <input type="password" className="form-control shadow p-3 m-3 bg-white rounded" id="signup-password-input"
                                     placeholder="Password" onChange={e => setSignupPassword(e.target.value)}></input>
                             </div>
                             <div className="form-group mt-4">
-                                <label htmlhtmlFor="exampleInputFirstName1">First Name</label>
+                                <label htmlFor="exampleInputFirstName1">First Name</label>
                                 <input type="text" className="form-control shadow p-3 m-3 bg-white rounded" id="first-name"
                                     placeholder="First Name" onChange={e => setSignupFirst(e.target.value)}></input>
                             </div>
                             <div className="form-group mt-4">
-                                <label htmlhtmlFor="exampleInputLastName1">Last Name</label>
+                                <label htmlFor="exampleInputLastName1">Last Name</label>
                                 <input type="text" className="form-control shadow p-3 m-3 bg-white rounded" id="last-name"
                                     placeholder="Last Name" onChange={e => setSignupSecond(e.target.value)} ></input>
                             </div>
