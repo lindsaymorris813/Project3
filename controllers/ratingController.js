@@ -5,7 +5,6 @@ module.exports = {
   //route for getting smoothy of the week
   getROW: function(req, res){
     const week = DateTime.local().minus({ days: 7 });
-    console.log(week);
     Rating.aggregate([
       {$match: { dateOfRating: {$gte: week }}},
       {$group: {_id: "$recipeId", avgRating: {$avg: "$rating"}}}
