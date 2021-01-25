@@ -5,7 +5,6 @@ import UserContext from "../components/Context/UserContext";
 import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
 
-
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
