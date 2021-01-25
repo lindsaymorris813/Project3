@@ -41,7 +41,7 @@ function Dashboard() {
                                 <div className="row ">
                                     <div className="col shadow p-3 m-3 rounded list-border">
                                         <div className="container">
-                                            <
+                                            <h1></h1>
                                         </div>
                                 </div>
                                     <div className="col shadow p-3 m-3 rounded list-border">
