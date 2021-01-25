@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 function Nav() {
 
 
 
     return (
-        <div className="col-3">
+        <div className="col-3 nav-class">
             <div className="container">
                 <div className="row shadow p-3 m-3 rounded list-border">
                     <div className="col">

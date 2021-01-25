@@ -61,12 +61,12 @@ const Login = () => {
           <div className="col-6">
             <form className="login">
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email address</label>
+                <label htmlhtmlFor="exampleInputEmail1">Email address</label>
                 <input type="email" className="form-control shadow p-3 m-3 bg-white rounded" id="login-email-input"
                   placeholder="Email" onChange={e => setLoginEmail(e.target.value)} ></input>
               </div>
               <div className="form-group mt-4">
-                <label htmlFor="exampleInputPassword1">Password</label>
+                <label htmlhtmlFor="exampleInputPassword1">Password</label>
                 <input type="password" className="form-control shadow p-3 m-3 bg-white rounded" id="login-password-input"
                   placeholder="Password" onChange={e => setLoginPassword(e.target.value)}></input>
               </div>
