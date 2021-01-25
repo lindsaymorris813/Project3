@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./GlobalStyles.css";
+import "./Typography.css";
 import SignUp from "./pages/SignUp.js";
 import Login from "./pages/Login.js";
 import Profile from "./pages/Profile.js";
