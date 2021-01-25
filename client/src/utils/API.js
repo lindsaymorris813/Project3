@@ -23,7 +23,7 @@ export default {
   },
   //add new Recipe
   addRecipe: function(recipeData) {
-    return axios.post("/api/recipes");
+    return axios.post("/api/recipes", recipeData);
   },
   //get Recipe by Id
   findRecipe: function(id) {
@@ -35,7 +35,7 @@ export default {
   },
   //add Image to Recipe by ID
   uploadRecipeImage: function(id, imageURL) {
-    return axios.get("api/recipes/" + id + "/upload");
+    return axios.get("api/recipes/" + id + "/upload", imageURL);
   },
   //get all Ingredients
   getIngredients: function() {
@@ -43,7 +43,7 @@ export default {
   },
   //add new Ingredient
   addIngredient: function(name) {
-    return axios.get("api/ingredients");
+    return axios.get("api/ingredients", name);
   },
   //get Rating of recipe
   getRating: function() {
