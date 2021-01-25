@@ -59,7 +59,7 @@ export default {
   },
   //get UserInfo
   getUserInfo: function(){
-    return axios.get("/api/users/userinfo");
+    return axios.get("/api/users");
   },
   //update User profile image
   uploadProfileImage: function(id, imageURL) {

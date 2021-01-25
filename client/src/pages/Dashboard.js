@@ -1,14 +1,26 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import "./dashboard.css";
 import UserContext from "../components/Context/UserContext";
 import { Redirect } from "react-router-dom";
+import API from "../utils/API";
 
 function Dashboard() {
-
     const { email } = useContext(UserContext);
+    const [recipeOfWeek, setRecipeOfWeek] = useState([]);
+
+    useEffect(() => {
+        loadROW();
+    });
+
+    function loadROW() {
+        API.getROW()
+          .then(res => setRecipeOfWeek(res.data))
+          .catch(err => console.log(err));
+    };    
+
     const renderDashboard = () => {
         if (email) {
             return (
@@ -28,7 +40,9 @@ function Dashboard() {
                                 </div>
                                 <div className="row ">
                                     <div className="col shadow p-3 m-3 rounded list-border">
-                                        Smoothie of the week
+                                        <div className="container">
+                                            <
+                                        </div>
                                 </div>
                                     <div className="col shadow p-3 m-3 rounded list-border">
                                         My Recipes
