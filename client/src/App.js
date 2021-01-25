@@ -12,16 +12,18 @@ import SearchRecipe from "./pages/SearchRecipe.js";
 import UserContext from "./components/Context/UserContext";
 import Uploader from "./pages/Uploader";
 
-const App = () =>{
-const [emailID, setEmailID] = useState({
-  email: "",
-  onLogin: (emailID) => setEmailID((emailAuth) => ({...emailAuth,email: emailID }))
-});
+const App = () => {
+  const [emailID, setEmailID] = useState({
+    email: "",
+    onLogin: (emailID) => {
+      setEmailID((emailAuth) => ({ ...emailAuth, email: emailID }))
+    }
+  });
 
-    return (
-      <Router>
-        <UserContext.Provider value={emailID}>
-        <div className="App">
+  return (
+    <UserContext.Provider value={emailID}>
+      <div className="App">
+        <Router>
           <Route exact path="/" component={Login} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
@@ -30,11 +32,11 @@ const [emailID, setEmailID] = useState({
           <Route exact path="/addrecipe" component={AddRecipe} />
           <Route exact path="/searchrecipe" component={SearchRecipe} />
           <Route exact path="/uploader" component={Uploader} />
-        </div>
-        </UserContext.Provider>
-      </Router>
-    );
-  }
+        </Router>
+      </div>
+    </UserContext.Provider>
+  );
+}
 
 
 export default App;
