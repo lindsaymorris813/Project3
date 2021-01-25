@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema ({
   title: { type: String, trim: true, required: "Title is Required" },
-  image: { type: String},
+  image: { type: String, default: "http://res.cloudinary.com/dhfx4qopy/image/upload/v1611611835/foo/wq1oocwskdirpyay8eak.png"},
   type: { type: String, required: true },
   categories: Array,
   ingredients: Array,

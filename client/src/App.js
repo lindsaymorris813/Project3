@@ -19,6 +19,9 @@ const App = () => {
     email: "",
     onLogin: (emailID) => {
       setEmailID((emailAuth) => ({ ...emailAuth, email: emailID }));
+    },
+    onLogout: () => {
+      setEmailID((emailAuth) => ({...emailAuth, email: ""}));
     }
   });
 
