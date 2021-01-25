@@ -16,7 +16,8 @@ router.route("/:id")
   .delete(recipeController.deleteRecipe);
 
 router.route("/:id/rating")
-  .get(ratingController.getRating);
+  .get(ratingController.getRating)
+  .post(ratingController.addRating);
 
 router.route("/:id/upload", upload, async(req, res) => {
   try {

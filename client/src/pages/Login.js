@@ -5,14 +5,13 @@ import UserContext from "../components/Context/UserContext";
 import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
 
-
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const email = useContext(UserContext);
   const history = useHistory();
 
-  const login = (event) => {
+    const login = (event) => {
     event.preventDefault();
     console.log('Clicked Login');
     axios({
@@ -24,7 +23,6 @@ const Login = () => {
       withCredentials: true,
       url: "/api/users/login",
     }).then((res) => {
-      console.log("Response after login: ", res);
       const responseObject = JSON.parse(res.config.data);
       const emailLoggedIn = responseObject.email;
       console.log(emailLoggedIn);
