@@ -11,7 +11,7 @@ const Login = () => {
   const email = useContext(UserContext);
   const history = useHistory();
 
-  const login = (event) => {
+    const login = (event) => {
     event.preventDefault();
     console.log('Clicked Login');
     axios({
@@ -23,9 +23,9 @@ const Login = () => {
       withCredentials: true,
       url: "/api/users/login",
     }).then((res) => {
-      console.log(res);
-      const emailLoggedIn = res.data.email;
-
+      const responseObject = JSON.parse(res.config.data);
+      const emailLoggedIn = responseObject.email;
+      console.log(emailLoggedIn);
       email.onLogin(emailLoggedIn);
      
       if (res.data === "Authentication successful"){
