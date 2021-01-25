@@ -18,7 +18,7 @@ const App = () => {
       setEmailID((emailAuth) => ({ ...emailAuth, email: emailID }))
     }
   });
-
+  
   return (
     <UserContext.Provider value={emailID}>
       <div className="App">
