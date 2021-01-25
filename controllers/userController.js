@@ -32,6 +32,7 @@ module.exports = {
       }
     })(req, res, next);
   },
+
   //signUp route for creating new user
   signUp: function (req, res) {
     User.findOne({ email: req.body.email },

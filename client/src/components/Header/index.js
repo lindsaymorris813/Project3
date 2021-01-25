@@ -13,7 +13,7 @@ function Header() {
         console.log("Clicked Logout"); 
         axios({
             method: "GET",
-            withCredentials: false,
+            withCredentials: true,
             url: "/api/users/logout",
         }).then((res) => {
             

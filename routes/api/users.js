@@ -18,13 +18,14 @@ router
   .post(userController.logIn);
 
 // Matches with "/api/users/upload"
-router.post("/upload", upload, async({ file, emailID }, res) => {
+router.post("/upload", upload, async(req, res) => {
+  console.log(req);
   try{
-    const result = await uploadToCloudinary(file.path, { folder: "foo" });
-    if(file) unlinkSync(file.path);
-    await User.findOneAndUpdate({
-      where:{email: emailID},
-      image:result.url
+    const result = await uploadToCloudinary(req.file.path, { folder: "foo" });
+    if(req.file) unlinkSync(req.file.path);
+    await User.findOne({
+      where:{email: req.user.email},
+      image:result.url,
     });
     res.send(result.url);
   }catch(error){
