@@ -52,5 +52,14 @@ module.exports = {
           res.send("Account has been created!");
         }
       });
+  },
+
+  //UserInfo route
+  userInfo: function (req, res){
+    User.findOne({email: req.user.email})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => {
+        res.status(422).json(err);
+      });
   }
 };

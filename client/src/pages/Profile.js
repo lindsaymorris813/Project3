@@ -1,11 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import "./profile.css";
+import API from "../utils/API";
 
 function Profile() {
+    const [image, setImage] = useState("images/fruitTray.jpg");
+    const handleChange = (e) => {
+      // can do multiple files, so will give back an Array, we want to grab back the first, pass it through to API upload
+      uploadImage(e.target.files[0]);
+    }; 
 
+    //UseEffect
+    useEffect(() => {
+        API.getUserInfo().then(res => {
+            console.log(res);
+            setImage(res.data.image);
+        }).catch(err =>
+            console.log(err));
+    }, []);
+  
+    const uploadImage = async (file) => {
+      const { data: image } = await API.userImageUpload(file);
+      setImage(image);
+    };
 
 
     return (
@@ -23,8 +42,28 @@ function Profile() {
                                         <h3>User Profile</h3>
                                         <div className="row">
                                             <div className="col-5 ">
-                                                <img className="smoothie rounded list-border" src="images/fruitTray.jpg" ></img>
-                                                <button type="button" className="btn btn-info btn-block">Change your picture</button>
+                                                <img className="smoothie rounded list-border" src={image} secure="false" width="300" crop="scale" ></img>
+                                                <label className="file-label">
+            {/* Input with type of file, allows to grab file from computer and upload */}
+            {/* handle change whenever file has been added or uploaded */}
+            {/* takes e.target.file @ position 0 */}
+            <input 
+              className="file-input" 
+              type="file" 
+              onChange={handleChange} 
+            />
+            {/* no easy way to change the look of file uploader
+            max makes invisible and then puts an image OVER the uploader
+            this is what anthony is doing here */}
+            <span className="file-cta">
+              <span className="file-icon">
+                <i className="fas fa-upload"></i>
+              </span>
+              <span className="file-label">
+             
+              </span>
+            </span>
+          </label>
                                             </div>
                                             <div className="col-7 p-3">
                                                 <div>

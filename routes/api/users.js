@@ -17,6 +17,10 @@ router
   .route("/login")
   .post(userController.logIn);
 
+//UserInfo
+router.route("/userinfo")
+  .get(userController.userInfo);
+
 // Matches with "/api/users/upload"
 router.post("/upload", upload, async(req, res) => {
   console.log(req);
