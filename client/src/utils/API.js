@@ -17,13 +17,33 @@ export default {
     formData.append("file",file);
     return axios.post("/api/users/upload", formData, config);
   },
-  //get all Recipes
-  getRecipes: function() {
+  //get Recipes from Search
+  searchRecipes: function(query) {
     return axios.get("/api/recipes");
+  },
+  //add new Recipe
+  addRecipe: function(recipeData) {
+    return axios.post("/api/recipes");
+  },
+  //get Recipe by Id
+  findRecipe: function(id) {
+    return axios.get("api/recipes/" + id);
+  },
+  //delete Recipe by ID
+  deleteRecipe: function(id) {
+    return axios.get("api/recipes/" + id);
+  },
+  //add Image to Recipe by ID
+  uploadRecipeImage: function(id, imageURL) {
+    return axios.get("api/recipes/" + id + "/upload");
   },
   //get all Ingredients
   getIngredients: function() {
     return axios.get("/api/ingredients");
+  },
+  //add new Ingredient
+  addIngredient: function(name) {
+    return axios.get("api/ingredients");
   },
   //get Rating of recipe
   getRating: function() {
