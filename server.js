@@ -29,7 +29,7 @@ app.use(bodyParser.json({limit:"10mb"}));
 app.use(bodyParser.urlencoded({limit:"10mb", extended: true }));
 
 app.use(session({
-  secret: "catnip",
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false
 }));
