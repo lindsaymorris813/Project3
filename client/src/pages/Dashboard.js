@@ -41,7 +41,11 @@ function Dashboard() {
                                 <div className="row ">
                                     <div className="col shadow p-3 m-3 rounded list-border">
                                         <div className="container">
-                                            <h1></h1>
+                                            <h2>Smoothie of the Week</h2>
+                                            <h4>{recipeOfWeek[0].title}</h4>
+                                            <p>{recipeOfWeek[0].rating} out of 5 stars!</p>
+                                            <img src= {recipeOfWeek[0].image} alt={recipeOfWeek[0].title}/>
+                                            <p>{recipeOfWeek[0].prep}</p>
                                         </div>
                                 </div>
                                     <div className="col shadow p-3 m-3 rounded list-border">
