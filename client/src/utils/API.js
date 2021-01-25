@@ -62,7 +62,7 @@ export default {
     return axios.get("/api/users/userinfo");
   },
   //update User profile image
-  uploadProfilImage: function(id, imageURL) {
+  uploadProfileImage: function(id, imageURL) {
     return axios.post("/api/users/:id/upload", imageURL);
   }
 };
