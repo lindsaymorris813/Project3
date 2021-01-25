@@ -10,11 +10,11 @@ function Dashboard() {
   const { email } = useContext(UserContext);
   const [recipeOfWeek, setRecipeOfWeek] = useState([]);
 
-  async function loadROW() {
+  const loadROW = async () => {
     await API.getROW()
       .then(res => setRecipeOfWeek(res.data))
       .catch(err => console.log(err));
-  }
+  };
 
   useEffect(() => {
     loadROW();
@@ -29,7 +29,7 @@ function Dashboard() {
           <div className="container">
             <div className="row shadow p-3 m-3 rounded list-border">
               <div className="col-3">
-                <img className="smoothie" src="images/fruitTray.jpg" ></img>
+                <img className="smoothie" src="images/fruitTray.jpg" alt="" ></img>
               </div>
               <div className="col-9">
                 <h3>Dashboard heading. What else here?</h3>
@@ -39,6 +39,7 @@ function Dashboard() {
               <div className="col shadow p-3 m-3 rounded list-border">
                 <div className="container">
                   <h2>Smoothie of the Week</h2>
+                  <h4>{recipeOfWeek[0].title}</h4>
                 </div>
               </div>
               <div className="col shadow p-3 m-3 rounded list-border">
