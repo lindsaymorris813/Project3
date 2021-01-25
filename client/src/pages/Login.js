@@ -24,9 +24,10 @@ const Login = () => {
       withCredentials: true,
       url: "/api/users/login",
     }).then((res) => {
-      console.log(res);
-      const emailLoggedIn = res.data.email;
-
+      console.log("Response after login: ", res);
+      const responseObject = JSON.parse(res.config.data);
+      const emailLoggedIn = responseObject.email;
+      console.log(emailLoggedIn);
       email.onLogin(emailLoggedIn);
      
       if (res.data === "Authentication successful"){

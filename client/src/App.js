@@ -18,9 +18,9 @@ const [emailID, setEmailID] = useState({
 });
 
     return (
-      <Router>
         <UserContext.Provider value={emailID}>
         <div className="App">
+      <Router>
           <Route exact path="/" component={Login} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
@@ -29,9 +29,9 @@ const [emailID, setEmailID] = useState({
           <Route exact path="/addrecipe" component={AddRecipe} />
           <Route exact path="/searchrecipe" component={SearchRecipe} />
           <Route exact path="/uploader" component={Uploader} />
+      </Router>
         </div>
         </UserContext.Provider>
-      </Router>
     );
   }
 
