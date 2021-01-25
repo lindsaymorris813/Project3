@@ -18,14 +18,11 @@ router.route("/:id")
 router.route("/:id/rating")
   .get(ratingController.getRating);
 
-router.route("/:id/upload", upload, async({ file, emailID }, res) => {
+router.route("/:id/upload", upload, async(req, res) => {
   try {
-    const result = await uploadToCloudinary(file.path, { folder: "foo" });
-    if (file) unlinkSync(file.path);
-    await User.findOneAndUpdate({
-      where: { email: emailID },
-      image: result.url
-    });
+    const result = await uploadToCloudinary(req.file.path, { folder: "foo" });
+    if (req.file) unlinkSync(req.file.path);
+    await User.findOneAndUpdate({email: req.user.email}, {image:result.url}, {new:true});
     res.send(result.url);
   } catch (error) {
     console.log(error);

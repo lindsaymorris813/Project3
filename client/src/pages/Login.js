@@ -9,10 +9,10 @@ import Footer from "../components/Footer";
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const currentUser = useContext(UserContext);
+  const email = useContext(UserContext);
   const history = useHistory();
 
-  const login = (event) => {
+    const login = (event) => {
     event.preventDefault();
     console.log('Clicked Login');
     axios({
@@ -24,10 +24,10 @@ const Login = () => {
       withCredentials: true,
       url: "/api/users/login",
     }).then((res) => {
-      console.log(res);
-      const emailLoggedIn = res.data.email;
-
-      currentUser.onLogin(emailLoggedIn);
+      const responseObject = JSON.parse(res.config.data);
+      const emailLoggedIn = responseObject.email;
+      console.log(emailLoggedIn);
+      email.onLogin(emailLoggedIn);
      
       if (res.data === "Authentication successful"){
         history.push("/uploader")
@@ -76,9 +76,9 @@ const Login = () => {
                 </div>
               </div>
               <br />
-              <div class="row mt-3">
-                <div class="col-12">
-                  <p class="text-center">Or sign up <a href="/signup">here</a></p>
+              <div className="row mt-3">
+                <div className="col-12">
+                  <p className="text-center">Or sign up <a href="/signup">here</a></p>
                 </div>
               </div>
             </form>

@@ -39,7 +39,6 @@ function Uploader () {
                 <i className="fas fa-upload"></i>
               </span>
               <span className="file-label">
-                Choose a file…
               </span>
             </span>
           </label>
