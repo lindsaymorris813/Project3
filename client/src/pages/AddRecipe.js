@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import RecipeCard from "../components/RecipeCard";
+import AddRecipeModal from "../components/AddRecipeModal";
 
 function AddRecipe() {
 
@@ -26,6 +27,7 @@ function AddRecipe() {
                                     <div className="row">
                                         <div className="col-12 text-center clearfix">
                                             <button type="submit" className="btn btn-block btn-info active float-right" id="search-btn">Click here to add new recipe</button>
+                                            <AddRecipeModal />
                                         </div>
                                     </div>
                                 </form>
