@@ -64,5 +64,9 @@ export default {
   //update User profile image
   uploadProfileImage: function(id, imageURL) {
     return axios.post("/api/users/:id/upload", imageURL);
+  },
+  //check to see if user is loggedin
+  userLogedIn: function(){
+    return axios.get("/api/users/logedin");
   }
 };

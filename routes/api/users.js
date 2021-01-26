@@ -21,6 +21,10 @@ router
 router.route("/")
   .get(userController.userInfo);
 
+//Matches with /api/users/logedin and checks to see if user is loggedin
+router.route("/logedin")
+  .get(userController.logedIn);
+
 // Matches with "/api/users/upload"
 router.post("/upload", upload, async(req, res) => {
   console.log(req);

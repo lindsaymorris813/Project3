@@ -9,24 +9,34 @@ import API from "../utils/API";
 function Dashboard() {
   const { email } = useContext(UserContext);
   const [recipeOfWeek, setRecipeOfWeek] = useState([]);
-
-  // const loadROW = () => {
-  //   API.getROW()
-  //     .then((res) => {
-  //       API.findRecipe(res.data[0]._id)
-  //         .then((res) => {
-  //           setRecipeOfWeek(res.data);
-  //           console.log(res.data);
-  //         })
-  //         .catch(err => console.log(err));
-  //     })
-  //     .catch(err => console.log(err));
-  // };
-
-  // useEffect(() => {
-  //   loadROW();
-  // });
-
+  const loadROW = () => {
+    API.getROW()
+      .then((res) => {
+        console.log(res.data[0]._id);
+        API.findRecipe(res.data[0]._id)
+          .then(async (res) => {
+            console.log(res.data);
+            await setRecipeOfWeek(res.data);
+            //try to call getRatingRow function here
+            console.log(recipeOfWeek);
+          })
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+  };
+  const getRatingROW = () => {
+    API.getRating()
+      .then((res) => {
+        console.log(res.data.avgRating);
+        setRecipeOfWeek((recipeOfWeek) => ({...recipeOfWeek, rating: res.data.avgRating}));
+        console.log(recipeOfWeek);
+      })
+      .catch(err => console.log(err));
+  };
+  useEffect(() => {
+    loadROW();
+    // getRatingROW();
+  }, []);
   return (
     <>
       <Header />
@@ -46,6 +56,21 @@ function Dashboard() {
               <div className="col shadow p-3 m-3 rounded list-border">
                 <div className="container">
                   <h2>Smoothie of the Week</h2>
+                  <h4>{recipeOfWeek.title}<span className="float-right">{recipeOfWeek.rating}/5 stars</span></h4>
+                  <p>Author:</p>
+                  <img src={recipeOfWeek.image} alt={recipeOfWeek.title}/>
+                  <h5>Category:</h5>
+                  <div>
+                    {/* {recipeOfWeek.categories.map((category) => (
+                      <p>{category}</p>
+                    ))} */}
+                  </div>
+                  <h5>Type:</h5>
+                  <p>{recipeOfWeek.type}</p>
+                  <h5>Ingredients:</h5>
+                  <p>{recipeOfWeek.ingredients}</p>
+                  <h5>Prep:</h5>
+                  <p>{recipeOfWeek.prep}</p>
                 </div>
               </div>
               <div className="col shadow p-3 m-3 rounded list-border">
@@ -59,5 +84,4 @@ function Dashboard() {
     </>
   );
 }
-
 export default Dashboard;

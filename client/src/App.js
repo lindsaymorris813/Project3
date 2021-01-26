@@ -11,6 +11,7 @@ import SearchRecipe from "./pages/SearchRecipe.js";
 import UserContext from "./components/Context/UserContext";
 // import Uploader from "./pages/Uploader";
 import Authenticated from "./components/Authenticated";
+import API from "./utils/API";
 
 
 const App = () => {
@@ -25,15 +26,10 @@ const App = () => {
   });
 
   useEffect(()=>{
-    const data = localStorage.getItem("userInfo");
-    if(data){
-      setEmailID((userEmail)=>({...userEmail,email:data}));
-    }
-  },[]);
-
-  useEffect(()=>{
-    localStorage.setItem("userInfo", emailID.email);
-  });
+    API.userLogedIn()
+      .then(res=>setEmailID((userLogedIn)=>({...userLogedIn,email:res.data.email})))
+      .catch(err=>console.log(err));
+  },[emailID.email]);
 
   return (
     <UserContext.Provider value={emailID}>
