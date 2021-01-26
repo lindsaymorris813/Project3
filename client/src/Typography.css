@@ -42,3 +42,20 @@ label {
 
   font-size: 20px;
 }
+
+div.card-body {
+
+  background-color: #e0dede;
+}
+
+div.col-md-8 {
+  background-color: #e0dede;
+}
+
+div.col-md-4 {
+  background-color: #e0dede;
+}
+
+div.row.shadow.p-3.m-3.rounded.list-border {
+  background-color: #e0dede;
+}
