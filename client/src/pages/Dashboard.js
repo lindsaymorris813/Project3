@@ -59,6 +59,14 @@ function Dashboard() {
                 <div className="container">
                   <h2>Smoothie of the Week</h2>
                   <h4>{recipeOfWeek.title}<span className="float-right">{recipeOfWeek.rating}/5 stars</span></h4>
+                  <p>Author:</p>
+                  <img src={recipeOfWeek.image} alt={recipeOfWeek.title}/>
+                  <h5>Category:</h5>
+                  {/* {recipeOfWeek.categories.map((category) => {
+                    <p>{category}</p>
+                  })} */}
+                  <h5>Type:</h5>
+                  <p>{recipeOfWeek.type}</p>
                   <h5>Ingredients:</h5>
                   <p>{recipeOfWeek.ingredients}</p>
                   <h5>Prep:</h5>
