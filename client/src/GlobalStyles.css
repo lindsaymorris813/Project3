@@ -5,7 +5,7 @@
 }
 
 .App {
-  background-color: rgba(101, 202, 248, 0.89);
+  background-color: rgba(20, 92, 158, 0.89);
   padding-bottom: 20vmax;
 }
 
@@ -27,5 +27,5 @@ html {
 }
 
 .login-box {
-  background-color: rgba(182, 255, 139, 0.89);
+  background-color: rgba(74, 189, 172, 1);
 }

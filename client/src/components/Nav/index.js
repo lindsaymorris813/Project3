@@ -7,9 +7,9 @@ function Nav() {
 
 
   return (
-    <div className="col-3 nav-class">
+    <div className="col-2">
       <div className="container">
-        <div className="row shadow p-3 m-3 rounded list-border">
+        <div className="row shadow rounded list-border nav-class">
           <div className="col">
             <ul className="navbar-nav">
               <li className="nav-item">
@@ -23,6 +23,7 @@ function Nav() {
                 >Profile
                 </Link>
               </li>
+              <hr></hr>
               <li className="nav-item">
                 <Link
                   to="/dashboard"
@@ -34,6 +35,7 @@ function Nav() {
                 >Dashboard
                 </Link>
               </li>
+              <hr></hr>
               <li className="nav-item">
                 <Link
                   to="/searchrecipe"
@@ -45,6 +47,7 @@ function Nav() {
                 >Search Recipes
                 </Link>
               </li>
+              <hr></hr>
               <li className="nav-item">
                 <Link
                   to="/addrecipe"
