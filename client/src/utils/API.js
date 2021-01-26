@@ -1,3 +1,4 @@
+
 const axios = require("axios");
 
 export default {
@@ -68,5 +69,9 @@ export default {
   //update User profile image
   uploadProfileImage: function(id, imageURL) {
     return axios.post("/api/users/:id/upload", imageURL);
+  },
+  //get all recipes from User
+  getUserRecipes: function(id) {
+    return axios.get("/api/users/" + id + "/recipes");
   }
 };

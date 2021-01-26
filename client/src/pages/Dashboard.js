@@ -5,10 +5,12 @@ import Nav from "../components/Nav";
 import "./dashboard.css";
 import UserContext from "../components/Context/UserContext";
 import API from "../utils/API";
+import RecipeCard from "../components/RecipeCard";
 
 function Dashboard() {
   const { email } = useContext(UserContext);
   const [recipeOfWeek, setRecipeOfWeek] = useState([]);
+  const [userRecipes, setUserRecipes] = useState([]);
 
   const getRatingROW = (id) => {
     API.getRating(id)
@@ -34,9 +36,23 @@ function Dashboard() {
       .catch(err => console.log(err));
   };
 
+  const getRecipes = () => {
+    API.getUserInfo()
+      .then((res) => {
+        console.log(res.data);
+        API.getUserRecipes(res.data._id)
+          .then((res) => {
+            console.log(res);
+            setUserRecipes(res.data);
+          })
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+  };
 
   useEffect(() => {
     loadROW();
+    getRecipes();
   }, []);
 
   return (
@@ -80,7 +96,10 @@ function Dashboard() {
                 </div>
               </div>
               <div className="col shadow p-3 m-3 rounded list-border">
-                My Recipes
+                <h2>My Recipes</h2>
+                {userRecipes && userRecipes.map((recipe) => (
+                  <RecipeCard key={recipe._id}/>
+                ))}
               </div>
             </div>
           </div>

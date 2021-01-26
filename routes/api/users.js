@@ -3,6 +3,7 @@ const userController = require("../../controllers/userController");
 const User = require("../../models/user");
 const { unlinkSync } = require("fs");
 const { upload, uploadToCloudinary } = require("../../controllers/uploadcontroller");
+const recipeController = require("../../controllers/recipeController");
 
 //Matches with "/logout" === NEW CODE
 router.route("/logout")
@@ -18,8 +19,14 @@ router
   .post(userController.logIn);
 
 // Matches with "/api/users"
-router.route("/")
+router
+  .route("/")
   .get(userController.userInfo);
+
+// Find all recipes of User
+router
+  .route("/:id/recipes")
+  .get(recipeController.getUserRecipes);
 
 // Matches with "/api/users/upload"
 router.post("/upload", upload, async(req, res) => {
