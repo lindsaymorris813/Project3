@@ -37,17 +37,17 @@ function Dashboard() {
   };
 
   const getRecipes = () => {
-    API.getUserInfo()
+    // API.getUserInfo()
+    //   .then((res) => {
+    //     console.log(res.data);
+    API.getUserRecipes(res.data._id)
       .then((res) => {
-        console.log(res.data);
-        API.getUserRecipes(res.data._id)
-          .then((res) => {
-            console.log(res);
-            setUserRecipes(res.data);
-          })
-          .catch(err => console.log(err));
+        console.log(res);
+        setUserRecipes(res.data);
       })
       .catch(err => console.log(err));
+    // })
+    // .catch(err => console.log(err));
   };
 
   useEffect(() => {
