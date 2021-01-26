@@ -1,8 +1,10 @@
 .nav-class {
-    background-color: #F7BF50;
+    background-color: #E0DEDE;
     min-width: 15vmin;
-    padding-top: 10vh;
-    padding-bottom: 20vmax;
-    height: 100%;
+    
+}
+
+.nav-item {
+
 }
 

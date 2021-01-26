@@ -29,3 +29,11 @@ html {
 .login-box {
   background-color: rgba(74, 189, 172, 1);
 }
+
+.page-header {
+  background-color:#4ABDAC;
+}
+
+.recipe-list {
+  background-color: #E0DEDE;
+}

@@ -16,7 +16,7 @@ function SearchRecipe() {
               <div className="col-9">
                 <div className="container">
                   <div className="row"></div>
-                  <div className="row shadow p-3 m-3 rounded list-border">
+                  <div className="row shadow p-3 m-3 rounded list-border page-header">
                     <div className="col-1"></div>
                     <div className="col-10">
                       <form className="login">
