@@ -50,39 +50,33 @@ const ViewModal = () => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h3 ref={_subtitle => (subtitle = _subtitle)}>Add Recipe</h3>
+        <h3 ref={_subtitle => (subtitle = _subtitle)}>Recipe Name</h3>
         <form>
+          <div className="form-group" id="Author"> <h5>From: </h5>*Author name here*</div>
+          <div className="form-group" id="category"><h5>For: </h5>*list of categories here*</div>
           <div className="form-group">
-            <label htmlFor="formGroupExampleInput">Recipe Name:</label>
-            <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Recipe Name"/>
-          </div>
-          <div className="form-group">
-            <label htmlFor="formGroupExampleInput2">Ingredients:</label>
-            <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Strawberries, Oranges, Acai, etc..."/>
+            <label htmlFor="formGroupExampleInput1" id="view-ingredients"><h5>Ingredients: </h5>*list of ingredients here*</label>
           </div>
           <div className="form-group">
-            <label htmlFor="formGroupExampleInput">Rating:</label>
-            <input type="text" className="form-control" id="formGroupExampleInput" placeholder="1-5"/>
+            <label htmlFor="formGroupExampleInput2" id="view-instructions"><h5>Instructions: </h5>*list of instructions here*</label>
           </div>
-          <div className="form-check form-check-inline">
-            <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></input>
-            <label className="form-check-label" htmlFor="inlineCheckbox1">Low Sugar</label>
-          </div>
-          <div className="form-check form-check-inline">
-            <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"></input>
-            <label className="form-check-label" htmlFor="inlineCheckbox2">High Protein</label>
-          </div>
-          <div className="form-check form-check-inline">
-            <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></input>
-            <label className="form-check-label" htmlFor="inlineCheckbox1">Low Carb</label>
-          </div>
-          <div className="form-check form-check-inline">
-            <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"></input>
-            <label className="form-check-label" htmlFor="inlineCheckbox2">Weight Loss</label>
-          </div>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1"><h5>Make it? Rate it!</h5></label>
+            <select className="form-control" id="exampleFormControlSelect1" style={{width: "50%"}}>
+              <option>--</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+            <button type="submit">Save Rating</button>
+          </div> 
           <br></br>
-          <button type="submit">Blend It!</button>
-          <button onClick={closeModal}>Trash It!</button>
+          <div className="form-group"><h6>Want to make something similar, but with your own twist? Click here to add a new recipe with your own spin!</h6>
+            <button type="submit" id="fork-button">Tweak it!</button>
+          </div>
+          <button style={{float: "right"}} onClick={closeModal}>Close</button>
         </form>
       </Modal>
     </div>
