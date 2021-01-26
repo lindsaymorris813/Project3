@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import RecipeCard from "../components/RecipeCard";
-// import AddRecipeModal from "../components/AddRecipeModal";
 
 function AddRecipe() {
 
