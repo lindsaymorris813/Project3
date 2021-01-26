@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import RecipeCard from "../components/RecipeCard";
 import CreateModal from "../components/Modal";
-import ViewModal from "../components/ViewRecipeModal";
+
 
 
 
@@ -29,7 +29,6 @@ function AddRecipe() {
                     <div className="col-12 text-center clearfix">
                       <CreateModal />
                       {/* <button type="submit" className="btn btn-block btn-info active float-right" id="search-btn"></button> */}
-                      <ViewModal />
                     </div>
                   </div>
                 </form>

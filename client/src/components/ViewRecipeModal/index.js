@@ -42,7 +42,7 @@ const ViewModal = () => {
 
   return(
     <div>
-      <button type="button" className="btn btn-block btn-info active float-right" id="search-btn" onClick={openModal}>Blend Something New!</button>
+      <button type="button" className="btn btn-block btn-info active float-right" id="search-btn" onClick={openModal}>View Recipe</button>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}

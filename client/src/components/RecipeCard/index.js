@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import ViewModal from "../ViewRecipeModal";
 
 function RecipeCard() {
 
@@ -18,6 +19,7 @@ function RecipeCard() {
                     <p className="card-text"><small className="text-muted">Rating: 4/5</small></p>
                     <button type="button" className="btn btn-danger btn-sm">Delete Recipe</button>
                     <button type="button" className="btn btn-info btn-sm">Save Recipe</button>
+                    <ViewModal />
                   </div>
                 </div>
               </div>
