@@ -5,27 +5,55 @@ import Nav from "../components/Nav";
 import "../GlobalStyles.css";
 import UserContext from "../components/Context/UserContext";
 import API from "../utils/API";
+import RecipeCard from "../components/RecipeCard";
 
 function Dashboard() {
   const { email } = useContext(UserContext);
   const [recipeOfWeek, setRecipeOfWeek] = useState([]);
+  const [userRecipes, setUserRecipes] = useState([]);
 
-  // const loadROW = () => {
-  //   API.getROW()
-  //     .then((res) => {
-  //       API.findRecipe(res.data[0]._id)
-  //         .then((res) => {
-  //           setRecipeOfWeek(res.data);
-  //           console.log(res.data);
-  //         })
-  //         .catch(err => console.log(err));
-  //     })
-  //     .catch(err => console.log(err));
-  // };
+  const getRatingROW = (id) => {
+    API.getRating(id)
+      .then((res) => {
+        console.log(res.data[0].avgRating);
+        setRecipeOfWeek((recipeOfWeek) => ({...recipeOfWeek, rating: res.data[0].avgRating}));
+      })
+      .catch(err => console.log(err));
+  };
 
-  // useEffect(() => {
-  //   loadROW();
-  // });
+  const loadROW = () => {
+    API.getROW()
+      .then((res) => {
+        console.log(res.data[0]._id);
+        getRatingROW(res.data[0]._id);
+        API.findRecipe(res.data[0]._id)
+          .then((res) => {
+            console.log(res.data);
+            setRecipeOfWeek((recipeOfWeek) => ({...res.data, rating: recipeOfWeek.rating}));
+          })
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+  };
+
+  const getRecipes = () => {
+    API.getUserInfo()
+      .then((res) => {
+        setRecipeOfWeek((recipeOfWeek) => ({...recipeOfWeek, author: res.data.firstName + " " + res.data.lastName}));
+        API.getUserRecipes(res.data._id)
+          .then((res) => {
+            console.log(res);
+            setUserRecipes(res.data);
+          })
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+  };
+
+  useEffect(() => {
+    loadROW();
+    getRecipes();
+  }, []);
 
   return (
     <>
@@ -46,10 +74,35 @@ function Dashboard() {
               <div className="col shadow p-3 m-3 rounded list-border">
                 <div className="container">
                   <h2>Smoothie of the Week</h2>
+                  <h4>{recipeOfWeek.title}<span className="float-right">{recipeOfWeek.rating && recipeOfWeek.rating}/5 stars</span></h4>
+                  <img src={recipeOfWeek.image} alt={recipeOfWeek.title}/>
+                  <h5>Category:</h5>
+                  <div>
+                    <ul>
+                      {recipeOfWeek.categories && recipeOfWeek.categories.map((category) => (
+                        <li>{category}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <h5>Type:</h5>
+                  <p>{recipeOfWeek.type}</p>
+                  <h5>Ingredients:</h5>
+                  <div>
+                    <ul>
+                      {recipeOfWeek.ingredients && recipeOfWeek.ingredients.map((ingredient) => (
+                        <li>{ingredient}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <h5>Prep:</h5>
+                  <p>{recipeOfWeek.prep}</p>
                 </div>
               </div>
               <div className="col shadow p-3 m-3 rounded list-border">
-                My Recipes
+                <h2>My Recipes</h2>
+                {userRecipes && userRecipes.map((recipe) => (
+                  <RecipeCard recipes={recipe}/>
+                ))}
               </div>
             </div>
           </div>
