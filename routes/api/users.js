@@ -18,7 +18,7 @@ router
   .post(userController.logIn);
 
 //UserInfo
-router.route("/userinfo")
+router.route("/")
   .get(userController.userInfo);
 
 // Matches with "/api/users/upload"
