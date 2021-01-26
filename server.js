@@ -12,7 +12,7 @@ const path = require("path");
 const {existsSync, mkdirSync} = require("fs");
 
 require("dotenv").config();
-
+console.log("connecting to mongo.");
 //----------Connection to Mongoose------------------
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smoothiedb", {
   useNewUrlParser: true
