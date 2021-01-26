@@ -1,6 +1,7 @@
+/* eslint-disable linebreak-style */
 import React, { useState } from "react";
 import Modal from "react-modal";
-import Header from "../Header";
+
 
 
 
@@ -17,7 +18,7 @@ const customStyles = {
 
 Modal.setAppElement("#root");
 
-const ViewModal = () => {
+const CreateModal = () => {
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -88,4 +89,4 @@ const ViewModal = () => {
   );
 };
 
-export default ViewModal;
+export default CreateModal;
