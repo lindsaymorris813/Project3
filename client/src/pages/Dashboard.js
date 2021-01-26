@@ -24,9 +24,20 @@ function Dashboard() {
       .catch(err => console.log(err));
   };
 
+  // const getRatingROW = () => {
+  //   API.getRating()
+  //     .then((res) => {
+  //       console.log(res.data.avgRating);
+  //       setRecipeOfWeek((recipeOfWeek) => ({...recipeOfWeek, rating: res.data.avgRating}));
+  //       console.log(recipeOfWeek);
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+
   useEffect(() => {
     loadROW();
-  });
+    // getRatingROW();
+  }, []);
 
   return (
     <>
@@ -47,6 +58,11 @@ function Dashboard() {
               <div className="col shadow p-3 m-3 rounded list-border">
                 <div className="container">
                   <h2>Smoothie of the Week</h2>
+                  <h4>{recipeOfWeek.title}<span className="float-right">{recipeOfWeek.rating}/5 stars</span></h4>
+                  <h5>Ingredients:</h5>
+                  <p>{recipeOfWeek.ingredients}</p>
+                  <h5>Prep:</h5>
+                  <p>{recipeOfWeek.prep}</p>
                 </div>
               </div>
               <div className="col shadow p-3 m-3 rounded list-border">

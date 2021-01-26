@@ -36,7 +36,7 @@ module.exports = {
   },
   deleteRatings: function(req, res) {
     Rating
-      .deleteMany({ $match: { recipeId: req.params.id }})
+      .deleteMany({ recipeId: req.params.id })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
