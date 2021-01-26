@@ -24,11 +24,11 @@ const App = () => {
     }
   });
 
-  useEffect(()=>{
-    API.userLogedIn()
-      .then(res=>setEmailID((userLogedIn)=>({...userLogedIn,email:res.data.email})))
-      .catch(err=>console.log(err));
-  },[emailID.email]);
+  // useEffect(()=>{
+  //   API.userLogedIn()
+  //     .then(res=>setEmailID((userLogedIn)=>({...userLogedIn,email:res.data.email})))
+  //     .catch(err=>console.log(err));
+  // },[emailID.email]);
 
   return (
     <UserContext.Provider value={emailID}>
