@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, useLocation } from "react-router-dom";
 import UserContext from "../components/Context/UserContext";
 import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";

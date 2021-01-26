@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./GlobalStyles.css";
+import "./Typography.css";
 import SignUp from "./pages/SignUp.js";
 import Login from "./pages/Login.js";
 import Profile from "./pages/Profile.js";
@@ -12,15 +13,28 @@ import UserContext from "./components/Context/UserContext";
 import Authenticated from "./components/Authenticated";
 
 
-
 const App = () => {
   const [emailID, setEmailID] = useState({
     email: "",
     onLogin: (emailID) => {
       setEmailID((emailAuth) => ({ ...emailAuth, email: emailID }));
+    },
+    onLogout: () => {
+      setEmailID((emailAuth) => ({...emailAuth, email: ""}));
     }
   });
-  
+
+  useEffect(()=>{
+    const data = localStorage.getItem("userInfo");
+    if(data){
+      setEmailID((userEmail)=>({...userEmail,email:data}));
+    }
+  },[]);
+
+  useEffect(()=>{
+    localStorage.setItem("userInfo", emailID.email);
+  });
+
   return (
     <UserContext.Provider value={emailID}>
       <div className="App">
