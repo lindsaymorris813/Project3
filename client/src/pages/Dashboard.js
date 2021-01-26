@@ -35,20 +35,18 @@ function Dashboard() {
         <div className="col-10">
           <div className="container">
             <div className="row shadow p-3 m-3 rounded list-border page-header">
-              <div className="col-3">
-              </div>
-              <div className="col-9">
-                <h1>Dashboard</h1>
+              <div className="col text-center">
+                <h1 className="text-center">Dashboard</h1>
               </div>
             </div>
             <div className="row ">
               <div className="col shadow p-3 m-3 rounded list-border recipe-list">
                 <div className="container">
-                  <h2>Smoothie of the Week</h2>
+                  <h2 className="text-center">Smoothie of the Week</h2>
                 </div>
               </div>
               <div className="col shadow p-3 m-3 rounded list-border recipe-list">
-                <h2>My Recipes</h2>
+                <h2 className="text-center">My Recipes</h2>
               </div>
             </div>
           </div>
