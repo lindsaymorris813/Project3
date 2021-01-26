@@ -11,8 +11,16 @@ body {
 
 }
 
+h2, h3, h5, h6, 
+button.btn.btn.btn-danger.btn-sm, button#search-btn.btn.btn-block.btn-info.active.float-right, button.btn.btn-outline-info.my-2.my-sm-0  {
+  font-family: 'Handlee', cursive;
+}
 
-  p.card-text {
+
+
+
+
+  p.card-text, div.col.shadow.p-3.m-3.rounded.list-border, label {
 
     font-size: 20px;
 
@@ -23,12 +31,6 @@ a.nav-link {
   font-size: 23px;
 }
 
-div.col.shadow.p-3.m-3.rounded.list-border {
-
-  
-
-  font-size: 20px;
-}
 
 h5.card-title {
 
@@ -40,24 +42,11 @@ div.navbar-brand {
   font-size: 28px;
 }
 
-label {
 
-  font-size: 20px;
-}
 
-div.card-body {
+div.card-body, div.col-md-8, 
+div.col-md-4, div.row.shadow.p-3.m-3.rounded.list-border {
 
   background-color: #e0dede;
 }
 
-div.col-md-8 {
-  background-color: #e0dede;
-}
-
-div.col-md-4 {
-  background-color: #e0dede;
-}
-
-div.row.shadow.p-3.m-3.rounded.list-border {
-  background-color: #e0dede;
-}
