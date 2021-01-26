@@ -51,7 +51,7 @@ function SearchRecipe() {
                     </div>
                     <div className="col-1"></div>
                   </div>
-                  <div className="row shadow p-3 m-3 rounded list-border">
+                  <div className="row shadow p-3 m-3 rounded list-border recipe-list">
                     <div className="col-1"></div>
                     <div className="col-10">
                       <RecipeCard />

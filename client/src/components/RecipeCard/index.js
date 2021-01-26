@@ -6,8 +6,8 @@ function RecipeCard() {
 
   return (
         <>
-            <div className="card mb-3">
-              <div className="row no-gutters">
+            <div className="card mb-3 ">
+              <div className="row no-gutters shadow rounded recipe-card">
                 <div className="col-md-4">
                   <img src="/images/fruit.jpg" alt="..."></img>
                 </div>

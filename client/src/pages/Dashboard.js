@@ -42,12 +42,12 @@ function Dashboard() {
               </div>
             </div>
             <div className="row ">
-              <div className="col shadow p-3 m-3 rounded list-border">
+              <div className="col shadow p-3 m-3 rounded list-border recipe-list">
                 <div className="container">
                   <h2>Smoothie of the Week</h2>
                 </div>
               </div>
-              <div className="col shadow p-3 m-3 rounded list-border">
+              <div className="col shadow p-3 m-3 rounded list-border recipe-list">
                 <h2>My Recipes</h2>
               </div>
             </div>
