@@ -17,7 +17,7 @@ const customStyles = {
 
 Modal.setAppElement("#root");
 
-const ViewModal = () => {
+const CreateModal = () => {
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -88,4 +88,4 @@ const ViewModal = () => {
   );
 };
 
-export default ViewModal;
+export default CreateModal;

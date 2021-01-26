@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import RecipeCard from "../components/RecipeCard";
 import CreateModal from "../components/Modal";
-import ViewModal from "../components/Modal";
+import ViewModal from "../components/ViewRecipeModal";
 
 
 
