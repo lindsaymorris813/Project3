@@ -1,5 +1,5 @@
 .jumbotron{
-    background: url("/images/fruit.jpg") no-repeat right center; 
+    background-image: no-repeat right center; 
     background-size: cover;
 
 }
@@ -7,6 +7,5 @@
 .container-jumbo {
     margin: auto;
     width: 50%;
-    background: rgba(255,255,255, 0.75);
-
+    background: rgba(255,255,255, 0.90);
 }

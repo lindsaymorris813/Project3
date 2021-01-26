@@ -1,12 +1,31 @@
 
 .jumbotron {
-  background-image: url("https://raw.githubusercontent.com/lindsaymorris813/Project3/main/client/public/images/fruitTray.jpg");
+  background-image: url("https://wallpaperaccess.com/full/1101808.jpg");
+  text-align: center;
 }
 
 .App {
-  background-color: rgb(195, 227, 240);
+  background-color: rgba(101, 202, 248, 0.89);
+  padding-bottom: 20vmax;
 }
 
 .smoothie {
   width: 300px;
- }
+}
+
+html {
+  height: 100%
+}
+
+.background-pic {
+  /* background-image: url("https://wallpaperaccess.com/full/1101808.jpg"); */
+  height: 62%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.login-box {
+  background-color: rgba(182, 255, 139, 0.89);
+}
