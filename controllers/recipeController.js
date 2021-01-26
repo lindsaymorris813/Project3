@@ -1,4 +1,5 @@
 const Recipe = require("../models/recipe");
+const ratingController = require("./ratingController");
 
 module.exports = {
   //route for creating a recipe
@@ -35,6 +36,16 @@ module.exports = {
     Recipe
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  //find user recipe by Author
+  getUserRecipes: function(req, res) {
+    Recipe
+      .find({authorId: req.params.id})
+      .then((dbModel) => {
+        res.json(dbModel);
+        console.log(req.user);
+      })
       .catch(err => res.status(422).json(err));
   }
 };

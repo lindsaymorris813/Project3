@@ -21,7 +21,7 @@ function Profile() {
 
   const uploadImage = async (file) => {
     const { data: image } = await API.userImageUpload(file);
-    setUserData({image: image});
+    setUserData((userData) => ({...userData, image: image}));
   };
 
   const handleChange = (e) => {
