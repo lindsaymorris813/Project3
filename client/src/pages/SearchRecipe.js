@@ -6,55 +6,55 @@ import Nav from "../components/Nav";
 import API from "../utils/API";
 
 function SearchRecipe() {
-  const [queryCategory, setQueryCategory] = useState({
-    lowSugar: false,
-    highProtein: false,
-    lowCarb: false,
-    weightLoss: false
-  });
+  // const [queryCategory, setQueryCategory] = useState({
+  //   lowSugar: false,
+  //   highProtein: false,
+  //   lowCarb: false,
+  //   weightLoss: false
+  // });
 
-  const [searchBar, setSearchBar] = useState([]);
+  // const [searchBar, setSearchBar] = useState([]);
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    if (searchBar) {
-      API.searchRecipes(searchBar)
-        .then((res) => console.log(res.data))
-        .catch(err => console.log(err));
-    }
-  }
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   if (searchBar) {
+  //     API.searchRecipes(searchBar)
+  //       .then((res) => console.log(res.data))
+  //       .catch(err => console.log(err));
+  //   }
+  // }
 
-  function handleInputChange(event) {
-    const { value } = event.target;
-    setSearchBar(value);
-  }
+  // function handleInputChange(event) {
+  //   const { value } = event.target;
+  //   setSearchBar(value);
+  // }
 
-  const handleCheckClick = (id) => {
-    switch (id) {
-    case "lowSugar":
-      setQueryCategory((currState) => (
-        currState.lowSugar ? {...currState, lowSugar: false } : {...currState, lowSugar: true }
-      ));
-      break;
-    case "highProtein":
-      setQueryCategory((currState) => (
-        currState.highProtein ? {...currState, highProtein: false } : {...currState, highProtein: true }
-      ));
-      break;
-    case "lowCarb":
-      setQueryCategory((currState) => (
-        currState.lowCarb ? {...currState, lowCarb: false } : {...currState, lowCarb: true }
-      ));
-      break;
-    case "weightLoss":
-      setQueryCategory((currState) => (
-        currState.weightLoss ? {...currState, weightLoss: false } : {...currState, weightLoss: true }
-      ));
-      break;
-    default:
-      break;
-    }
-  };
+  // const handleCheckClick = (id) => {
+  //   switch (id) {
+  //   case "lowSugar":
+  //     setQueryCategory((currState) => (
+  //       currState.lowSugar ? {...currState, lowSugar: false } : {...currState, lowSugar: true }
+  //     ));
+  //     break;
+  //   case "highProtein":
+  //     setQueryCategory((currState) => (
+  //       currState.highProtein ? {...currState, highProtein: false } : {...currState, highProtein: true }
+  //     ));
+  //     break;
+  //   case "lowCarb":
+  //     setQueryCategory((currState) => (
+  //       currState.lowCarb ? {...currState, lowCarb: false } : {...currState, lowCarb: true }
+  //     ));
+  //     break;
+  //   case "weightLoss":
+  //     setQueryCategory((currState) => (
+  //       currState.weightLoss ? {...currState, weightLoss: false } : {...currState, weightLoss: true }
+  //     ));
+  //     break;
+  //   default:
+  //     break;
+  //   }
+  // };
 
   return (
     <>
@@ -67,7 +67,7 @@ function SearchRecipe() {
             <div className="row shadow p-3 m-3 rounded list-border">
               <div className="col-1"></div>
               <div className="col-10">
-                <form className="login">
+                {/* <form className="login">
                   <div className="form-group">
                     <label htmlFor="searchRecipe"><h2>Search for a Recipe</h2></label>
                     <input type="text" className="form-control shadow p-3 m-3 bg-white rounded" id="recipe-search"
@@ -95,7 +95,7 @@ function SearchRecipe() {
                       <button type="submit" className="btn btn-dark active float-right" id="search-btn" onClick={handleSubmit}>Submit</button>
                     </div>
                   </div>
-                </form>
+                </form> */}
               </div>
               <div className="col-1"></div>
             </div>
