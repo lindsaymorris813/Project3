@@ -27,7 +27,7 @@ const App = () => {
 
   return (
     <UserContext.Provider value={emailID}>
-      <div className="App">
+      <div className="App" id="App">
         <Router>
           <Route exact path="/" component={Login} />
           <Route exact path="/login" component={Login} />
