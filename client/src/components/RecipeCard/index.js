@@ -24,12 +24,13 @@ function RecipeCard(props) {
             <div className="card mb-3">
               <div className="row no-gutters">
                 <div className="col-md-4">
-                  <img className="m-3"src="/images/fruit.jpg" alt="..."></img>
+                  <img className="m-3" src="/images/fruit.jpg" alt="..."></img>
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
                     <h5 className="card-title m-2">{props.recipes.title}</h5>
-                    <h6 className="muted">{rating}/5 stars</h6>
+                    <h6 className="muted m-2">Current Rating: {rating}/5 stars</h6>
+                    <h6 className="muted m-2">Type: {props.recipes.type}</h6>
                   </div>
                 </div>
               </div>
@@ -49,14 +50,13 @@ function RecipeCard(props) {
                   </ul>
                 </div>
                 <div className="col">
+                  <h6>Preparation:</h6>
                   {props.recipes.prep}
                 </div>
               </div>
-              <button type="button" className="btn btn-danger btn-sm m-2">Delete Recipe</button>
-              <button type="button" className="btn btn-info btn-sm m-2">Save Recipe</button>
-              <ViewModal />
-
-
+              <div className="row m-2 clearfix">
+                <ViewModal className="m-2 float-right"/>
+              </div>
             </div>
         </>
   );
