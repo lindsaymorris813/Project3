@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
-import "./dashboard.css";
+import "./GlobalStyles.css";
 import UserContext from "../components/Context/UserContext";
 import API from "../utils/API";
 
