@@ -17,7 +17,8 @@ router.route("/:id")
 
 router.route("/:id/rating")
   .get(ratingController.getRating)
-  .post(ratingController.addRating);
+  .post(ratingController.addRating)
+  .put(ratingController.updateRating);
 
 router.route("/:id/upload", upload, async(req, res) => {
   try {
