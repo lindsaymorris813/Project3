@@ -5,6 +5,7 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
     "cloudinary-react": "^1.6.8",
     "react": "^16.6.3",
     "react-bootstrap": "^1.4.3",

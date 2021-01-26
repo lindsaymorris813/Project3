@@ -18,7 +18,6 @@ const recipeSchema = new Schema ({
 
 recipeSchema.methods.lastEdited = function() {
   this.lastEditedDate = Date.now();
-
   return this.lastEditedDate;
 };
 
