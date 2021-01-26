@@ -20,10 +20,12 @@ body {
 
 a.nav-link {
 
-  font-size: 25px;
+  font-size: 23px;
 }
 
 div.col.shadow.p-3.m-3.rounded.list-border {
+
+  
 
   font-size: 20px;
 }

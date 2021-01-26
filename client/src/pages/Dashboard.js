@@ -67,7 +67,7 @@ function Dashboard() {
                 <img className="smoothie" src="images/fruitTray.jpg" alt="" ></img>
               </div>
               <div className="col-9">
-                <h3>Dashboard heading. What else here?</h3>
+                <h3><strong>Dashboard</strong></h3>
               </div>
             </div>
             <div className="row ">
