@@ -53,7 +53,6 @@ module.exports = {
         }
       });
   },
-
   //UserInfo route
   userInfo: function (req, res){
     User.findOne({email: req.user.email})
@@ -61,5 +60,15 @@ module.exports = {
       .catch(err => {
         res.status(422).json(err);
       });
+  },
+  //checks to see if user is logged in
+  logedIn: function(req,res){
+    if(req.user){
+      User.findOne({email:req.user.email})
+        .then(dbModel => res.json(dbModel))
+        .catch(err=>res.status(422).json(err));
+    }else{
+      res.send("User not logged in.");
+    }
   }
 };
