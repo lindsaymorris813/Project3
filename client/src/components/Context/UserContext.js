@@ -2,7 +2,8 @@ import React from "react";
 
 const UserContext = React.createContext({
   email: "",
-  onLogin: () => undefined
+  onLogin: () => undefined,
+  onLogout: () => undefined
 });
 
 export default UserContext;

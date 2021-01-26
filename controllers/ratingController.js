@@ -7,7 +7,9 @@ module.exports = {
     const week = DateTime.local().minus({ days: 7 });
     Rating.aggregate([
       {$match: { dateOfRating: {$gte: week }}},
-      {$group: {_id: "$recipeId", avgRating: {$avg: "$rating"}}}
+      {$group: {_id: "$recipeId", avgRating: {$avg: "$rating"}}},
+      {$sort: { avgRating: -1 }},
+      {$limit: 1}
     ])
       .then(dbModel=>res.json(dbModel))
       .catch(err=>res.status(422).json(err));
