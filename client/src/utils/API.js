@@ -1,3 +1,4 @@
+
 const axios = require("axios");
 
 export default {
@@ -47,11 +48,15 @@ export default {
   },
   //add Rating of recipe by ID
   addRating: function(id, rating) {
-    return axios.post("/api/recipes/" + id + "rating", rating);
+    return axios.post("/api/recipes/" + id + "/rating", rating);
   },
   //get Rating of recipe by ID
   getRating: function (id) {
-    return axios.get("/api/recipes/" + id + "rating");
+    return axios.get("/api/recipes/" + id + "/rating");
+  },
+  //delete Ratings associated with recipe
+  deleteRatings: function(id) {
+    return axios.get("/api/recipes/" + id + "/rating");
   },
   //get Recipe of the Week by Rating
   getROW: function() {
@@ -65,8 +70,8 @@ export default {
   uploadProfileImage: function(id, imageURL) {
     return axios.post("/api/users/:id/upload", imageURL);
   },
-  //check to see if user is loggedin
-  userLogedIn: function(){
-    return axios.get("/api/users/logedin");
+  //get all recipes from User
+  getUserRecipes: function(id) {
+    return axios.get("/api/users/" + id + "/recipes");
   }
 };

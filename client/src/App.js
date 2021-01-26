@@ -9,7 +9,6 @@ import Dashboard from "./pages/Dashboard.js";
 import AddRecipe from "./pages/AddRecipe.js";
 import SearchRecipe from "./pages/SearchRecipe.js";
 import UserContext from "./components/Context/UserContext";
-// import Uploader from "./pages/Uploader";
 import Authenticated from "./components/Authenticated";
 import API from "./utils/API";
 
@@ -33,7 +32,7 @@ const App = () => {
 
   return (
     <UserContext.Provider value={emailID}>
-      <div className="App">
+      <div className="App" id="App">
         <Router>
           <Route exact path="/" component={Login} />
           <Route exact path="/login" component={Login} />
