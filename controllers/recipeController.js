@@ -1,4 +1,5 @@
 const Recipe = require("../models/recipe");
+const ratingController = require("./ratingController");
 
 module.exports = {
   //route for creating a recipe

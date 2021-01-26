@@ -47,11 +47,11 @@ export default {
   },
   //add Rating of recipe by ID
   addRating: function(id, rating) {
-    return axios.post("/api/recipes/" + id + "rating", rating);
+    return axios.post("/api/recipes/" + id + "/rating", rating);
   },
   //get Rating of recipe by ID
   getRating: function (id) {
-    return axios.get("/api/recipes/" + id + "rating");
+    return axios.get("/api/recipes/" + id + "/rating");
   },
   //delete Ratings associated with recipe
   deleteRatings: function(id) {
