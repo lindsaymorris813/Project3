@@ -15,10 +15,7 @@ require("dotenv").config();
 
 //----------Connection to Mongoose------------------
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smoothiedb", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
+  useNewUrlParser: true
 },
 () => {
   console.log("mongoose is connected");
@@ -44,13 +41,13 @@ require("./config/passport")(passport);
 app.use(routes);
 //-----------------------------End API Routes-----------------------------------------
 
-// // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
   var dir = path.join(__dirname,"tmp/");
-  if(!existsSync(dir)) mkdirSync(dir, 0744);
+  if(!existsSync(dir)) mkdirSync(dir, "0744");
 });
