@@ -80,7 +80,7 @@ function Dashboard() {
                   <div>
                     <ul>
                       {recipeOfWeek.categories && recipeOfWeek.categories.map((category) => (
-                        <li>{category}</li>
+                        <li key={category}>{category}</li>
                       ))}
                     </ul>
                   </div>
@@ -90,7 +90,7 @@ function Dashboard() {
                   <div>
                     <ul>
                       {recipeOfWeek.ingredients && recipeOfWeek.ingredients.map((ingredient) => (
-                        <li>{ingredient}</li>
+                        <li key={ingredient}>{ingredient}</li>
                       ))}
                     </ul>
                   </div>
@@ -101,7 +101,8 @@ function Dashboard() {
               <div className="col shadow p-3 m-3 rounded list-border">
                 <h2>My Recipes</h2>
                 {userRecipes && userRecipes.map((recipe) => (
-                  <RecipeCard recipes={recipe}/>
+                  <RecipeCard key={recipe}
+                    recipes={recipe}/>
                 ))}
               </div>
             </div>

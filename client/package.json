@@ -4,7 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^ 5.3.6",
     "cloudinary-react": "^1.6.8",
     "react": "^16.6.3",
     "react-bootstrap": "^1.4.3",

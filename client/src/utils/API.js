@@ -56,7 +56,7 @@ export default {
   },
   //delete Ratings associated with recipe
   deleteRatings: function(id) {
-    return axios.get("/api/recipes/" + id + "/rating");
+    return axios.delete("/api/recipes/" + id + "/rating");
   },
   //get Recipe of the Week by Rating
   getROW: function() {

@@ -39,13 +39,13 @@ function RecipeCard(props) {
                   <h6 className="m-2">Categories:</h6>
                   <ul>
                     {props.recipes.categories && props.recipes.categories.map((category) => (
-                      <li>{category}</li>
+                      <li key={category}>{category}</li>
                     ))}
                   </ul>
                   <h6 className="m-2">Ingredients:</h6>
                   <ul>
                     {props.recipes.ingredients && props.recipes.ingredients.map((ingredient) => (
-                      <li>{ingredient}</li>
+                      <li key={ingredient}>{ingredient}</li>
                     ))}
                   </ul>
                 </div>
