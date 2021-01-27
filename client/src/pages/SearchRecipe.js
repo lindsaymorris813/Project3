@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
-import RecipeCard from "../components/RecipeCard";
+import SearchRecipeCard from "../components/SearchRecipeCard";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 
@@ -100,9 +100,9 @@ function SearchRecipe() {
             <div className="row shadow p-3 m-3 rounded list-border">
               <div className="col-1"></div>
               <div className="col-10">
-                <RecipeCard key="a"/>
-                <RecipeCard key="b"/>
-                <RecipeCard key="c"/>
+                <SearchRecipeCard key="a"/>
+                <SearchRecipeCard key="b"/>
+                <SearchRecipeCard key="c"/>
               </div>
               <div className="col-1"></div>
             </div>
