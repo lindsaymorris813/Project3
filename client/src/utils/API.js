@@ -20,7 +20,7 @@ export default {
   },
   //get Recipes from Search
   searchRecipes: function(query) {
-    return axios.get("/api/recipes", query);
+    return axios.get("/api/recipes", {query});
   },
   //add new Recipe
   addRecipe: function(recipeData) {
