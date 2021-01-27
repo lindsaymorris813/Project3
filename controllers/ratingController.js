@@ -17,7 +17,10 @@ module.exports = {
   //route to get rating for recipe based on ID
   getRating: function(req, res){
     Rating
-      .aggregate([{$group: {_id: "$recipeId", avgRating: {$avg:"$rating"}}}])
+      .aggregate([{$group: {_id: "$recipeId", avgRating: {$avg:"$rating"}}},
+        {$sort: { avgRating: -1 }},
+        {$limit: 1}
+      ])
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -31,6 +34,12 @@ module.exports = {
   updateRating: function(req, res){
     Rating
       .findOneAndUpdate({ _id: {where: { recipeId: req.params.id, userId: req.user.id }}}, req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  deleteRatings: function(req, res) {
+    Rating
+      .deleteMany({ recipeId: req.params.id })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
