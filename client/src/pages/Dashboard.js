@@ -94,7 +94,7 @@ function Dashboard() {
               <div className="col shadow p-3 m-3 rounded list-border recipe-list">
                 <h2 className="text-center"><strong>My Recipes</strong></h2>
                 {userRecipes && userRecipes.map((recipe) => (
-                  <RecipeCard key={recipe._id}/>
+                  <RecipeCard recipes={recipe} key={recipe._id}/>
                 ))}
               </div>
             </div>
