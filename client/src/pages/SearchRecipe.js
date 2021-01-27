@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import RecipeCard from "../components/RecipeCard";
 import Nav from "../components/Nav";
 import API from "../utils/API";
@@ -23,7 +22,7 @@ function SearchRecipe() {
   //       .catch(err => console.log(err));
   //   }
   // }
-
+  
   // function handleInputChange(event) {
   //   const { value } = event.target;
   //   setSearchBar(value);
@@ -89,7 +88,6 @@ function SearchRecipe() {
                     <input className="form-check-input" type="checkbox" id="weightLoss" value="Weight Loss" click={handleCheckClick("weightLoss")}></input>
                     <label className="form-check-label" htmlFor="inlineCheckbox2">Weight Loss</label>
                   </div>
-
                   <div className="row">
                     <div className="col-12 text-center clearfix">
                       <button type="submit" className="btn btn-dark active float-right" id="search-btn" onClick={handleSubmit}>Submit</button>
@@ -111,7 +109,6 @@ function SearchRecipe() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
 
   );

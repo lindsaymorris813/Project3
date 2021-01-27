@@ -23,7 +23,7 @@ function Header() {
             <nav className="navbar navbar-light">
               <div className="navbar-brand">Welcome!</div>
               <form className="form-inline">
-                <button onClick={logout} className="btn btn-outline-info my-2 my-sm-0" type="submit">Logout</button>
+                <button onClick={logout} className="btn my-2 my-sm-0" type="submit">Logout</button>
               </form>
             </nav>
         </>

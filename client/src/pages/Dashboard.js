@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import "../GlobalStyles.css";
 import UserContext from "../components/Context/UserContext";
@@ -60,20 +59,17 @@ function Dashboard() {
       <Header />
       <div className="row">
         <Nav />
-        <div className="col-9">
+        <div className="col-10">
           <div className="container">
-            <div className="row shadow p-3 m-3 rounded list-border">
-              <div className="col-3">
-                <img className="smoothie" src="images/fruitTray.jpg" alt="" ></img>
-              </div>
-              <div className="col-9">
-                <h3><strong>Dashboard</strong></h3>
+            <div className="row shadow p-3 m-3 rounded list-border page-header">
+              <div className="col text-center">
+                <h1 className="text-center"><strong>Dashboard</strong></h1>
               </div>
             </div>
             <div className="row ">
-              <div className="col shadow p-3 m-3 rounded list-border">
+              <div className="col shadow p-3 m-3 rounded list-border recipe-list">
                 <div className="container">
-                  <h2>Smoothie of the Week</h2>
+                  <h2 className="text-center">Smoothie of the Week</h2>
                   <h4>{recipeOfWeek.title}<span className="float-right">{recipeOfWeek.rating && recipeOfWeek.rating}/5 stars</span></h4>
                   <p>Author:</p>
                   <img src={recipeOfWeek.image} alt={recipeOfWeek.title}/>
@@ -95,8 +91,8 @@ function Dashboard() {
                   <p>{recipeOfWeek.prep}</p>
                 </div>
               </div>
-              <div className="col shadow p-3 m-3 rounded list-border">
-                <h2>My Recipes</h2>
+              <div className="col shadow p-3 m-3 rounded list-border recipe-list">
+                <h2 className="text-center">My Recipes</h2>
                 {userRecipes && userRecipes.map((recipe) => (
                   <RecipeCard key={recipe._id}/>
                 ))}
@@ -105,7 +101,6 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
