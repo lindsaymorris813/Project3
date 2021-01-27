@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./GlobalStyles.css";
 import "./Typography.css";
@@ -10,7 +10,7 @@ import AddRecipe from "./pages/AddRecipe.js";
 import SearchRecipe from "./pages/SearchRecipe.js";
 import UserContext from "./components/Context/UserContext";
 import Authenticated from "./components/Authenticated";
-import API from "./utils/API";
+// import API from "./utils/API";
 
 
 const App = () => {

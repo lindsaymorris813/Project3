@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const ratingSchema = new Schema({
   recipeId: { type: Schema.Types.ObjectId, ref: "Recipe"},
   rating: { type: Number },
-  dateOfRating: { type: Date }
+  dateOfRating: { type: Date, default: Date.now }
 });
 
 

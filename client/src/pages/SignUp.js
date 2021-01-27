@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Jumbotron from "../components/Jumbotron";
-import Footer from "../components/Footer";
 
 const SignUp = () => {
   const [signupEmail, setSignupEmail] = useState("");
@@ -10,8 +9,6 @@ const SignUp = () => {
   const [signupFirst, setSignupFirst] = useState("");
   const [signupSecond, setSignupSecond] = useState("");
   const history = useHistory();
-
-
 
   const signup = (event) => {
     event.preventDefault();
@@ -31,8 +28,6 @@ const SignUp = () => {
     });
   };
 
-
-
   return (
         <>
             <Jumbotron />
@@ -43,7 +38,7 @@ const SignUp = () => {
               <div className="row shadow p-3 m-3 rounded list-border login-box">
                 <div className="col-3"></div>
                 <div className="col-6">
-                <a className="sign-up-link text-center header-color" href="/signup">
+                  <a className="sign-up-link text-center header-color" href="/signup">
                     <h2 className="white-text"><strong>Sign Up Form</strong></h2>
                   </a>
                   <form className="login">

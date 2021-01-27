@@ -1,14 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Nav from "../components/Nav";
 import "../GlobalStyles.css";
 import API from "../utils/API";
-import UserContext from "../components/Context/UserContext";
 
 function Profile() {
-  const { email } = useContext(UserContext);
-  const [image, setImage] = useState();
   const [userData, setUserData] = useState({});
 
   //UseEffect
@@ -33,8 +29,7 @@ function Profile() {
     <>
       <Header />
       <div className="row">
-        <Nav />
-        <div className="col-9">
+        <div className="col">
           <div className="container">
             <div className="row shadow p-3 m-3 rounded list-border page-header">
               <div className="col">

@@ -1,4 +1,5 @@
 const Recipe = require("../models/recipe");
+const mongoose = require("mongoose");
 
 module.exports = {
   //route for creating a recipe
@@ -39,10 +40,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  //find user recipe by Author
+  //find user recipes by Author
   getUserRecipes: function(req, res) {
+    const objId = mongoose.Types.ObjectId(req.params.id);
+    console.log(objId);
     Recipe
-      .find({authorId: req.params.id})
+      .find({authorId: objId})
       .then((dbModel) => {
         res.json(dbModel);
         console.log(req.user);

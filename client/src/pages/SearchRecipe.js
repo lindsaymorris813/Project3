@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import SearchRecipeCard from "../components/SearchRecipeCard";
-import Nav from "../components/Nav";
 import API from "../utils/API";
 
 function SearchRecipe() {
@@ -30,8 +29,7 @@ function SearchRecipe() {
     <>
       <Header />
       <div className="row">
-        <Nav />
-        <div className="col-9">
+        <div className="col">
           <div className="container">
             <div className="row"></div>
             <div className="row shadow p-3 m-3 rounded list-border page-header">
@@ -55,7 +53,7 @@ function SearchRecipe() {
             <div className="row shadow p-3 m-3 rounded list-border recipe-list">
               <div className="col-1"></div>
               <div className="col-10">
-                {foundRecipes && foundRecipes.map((recipe) => (
+                { foundRecipes ? foundRecipes.map((recipe) => (
                   <SearchRecipeCard
                     key={recipe._id}
                     title={recipe.title}
@@ -64,7 +62,9 @@ function SearchRecipe() {
                     prep={recipe.prep}
                     _id={recipe._id}
                   />
-                ))}
+                )) :
+                  <h3>Click Search to Find Your Next Juicy Smoothie!</h3>
+                }
               </div>
               <div className="col-1"></div>
             </div>
