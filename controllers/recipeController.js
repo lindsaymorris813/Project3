@@ -1,5 +1,4 @@
 const Recipe = require("../models/recipe");
-const ratingController = require("./ratingController");
 
 module.exports = {
   //route for creating a recipe
@@ -12,9 +11,11 @@ module.exports = {
   //route to return recipies based on search categories
   searchRecipe: function(req,res){
     Recipe
-      .find(req.query)//have to identify how to add in search criteria here.
-      .sort({ rating: -1 })
-      .then(dbModel=>res.json(dbModel))
+      .find(req.query)
+      .then(dbModel=> {
+        console.log(req);
+        res.json(dbModel);
+      })
       .catch(err=>res.status(422).json(err));
   },
   //delete a recipe based on its ID
