@@ -23,7 +23,10 @@ function Header() {
     <>
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="navbar-brand"><h2>Juicy Smoothie</h2></div>
-        <div className="collapse navbar-collapse">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link
