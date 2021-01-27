@@ -4,7 +4,7 @@ import ViewModal from "../ViewRecipeModal";
 import API from "../../utils/API";
 
 function RecipeCard ( props ) {
-  console.log(props);
+  console.log(props.key);
   const [rating, setRating] = useState();
   const getRating= () => {
     API.getRating(props._id)

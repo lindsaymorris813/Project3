@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
-import RecipeCard from "../components/SearchRecipeCard";
+import SearchRecipeCard from "../components/SearchRecipeCard";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 
@@ -84,7 +84,14 @@ function SearchRecipe() {
               <div className="col-1"></div>
               <div className="col-10">
                 {foundRecipes && foundRecipes.map((recipe) => (
-                  <RecipeCard key={recipe._id}/>
+                  <SearchRecipeCard
+                    key={recipe._id}
+                    title={recipe.title}
+                    categories={recipe.categories}
+                    ingredients={recipe.ingredients}
+                    prep={recipe.prep}
+                    _id={recipe._id}
+                  />
                 ))}
               </div>
               <div className="col-1"></div>
