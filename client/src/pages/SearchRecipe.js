@@ -22,7 +22,7 @@ function SearchRecipe() {
   //       .catch(err => console.log(err));
   //   }
   // }
-  
+
   // function handleInputChange(event) {
   //   const { value } = event.target;
   //   setSearchBar(value);
@@ -66,6 +66,13 @@ function SearchRecipe() {
             <div className="row shadow p-3 m-3 rounded list-border">
               <div className="col-1"></div>
               <div className="col-10">
+                <form className="login">
+                  <div className="form-group">
+                    <label htmlFor="searchRecipe"><h2>Search for a Recipe</h2></label>
+                    <input type="text" className="form-control shadow p-3 m-3 bg-white rounded" id="recipe-search"
+                      placeholder="Search Input"></input>
+                  </div>
+                </form>
                 {/* <form className="login">
                   <div className="form-group">
                     <label htmlFor="searchRecipe"><h2>Search for a Recipe</h2></label>
