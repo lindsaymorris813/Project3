@@ -5,52 +5,26 @@ import Nav from "../components/Nav";
 import API from "../utils/API";
 
 function SearchRecipe() {
-  const [foundRecipes, setFoundRecipes] = useState([]);
-  const [searchBar, setSearchBar] = useState();
 
-  function recipeSearch(query) {
-    API.searchRecipes(query)
-      .then((res) => console.log(res))
-      .catch(err => console.log(err));
-  }
+  const [searchBar, setSearchBar] = useState([]);
+  const [foundRecipes, setFoundRecipes] = useState([]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(searchBar);
-    recipeSearch(searchBar);
+    if (searchBar) {
+      API.searchRecipes(searchBar)
+        .then((res) => {
+          setFoundRecipes(res.data);
+          console.log(res.data);
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   function handleInputChange(event) {
     const { value } = event.target;
     setSearchBar(value);
   }
-
-  // const handleCheckClick = (id) => {
-  //   switch (id) {
-  //   case "lowSugar":
-  //     setQueryCategory((currState) => (
-  //       currState.lowSugar ? {...currState, lowSugar: false } : {...currState, lowSugar: true }
-  //     ));
-  //     break;
-  //   case "highProtein":
-  //     setQueryCategory((currState) => (
-  //       currState.highProtein ? {...currState, highProtein: false } : {...currState, highProtein: true }
-  //     ));
-  //     break;
-  //   case "lowCarb":
-  //     setQueryCategory((currState) => (
-  //       currState.lowCarb ? {...currState, lowCarb: false } : {...currState, lowCarb: true }
-  //     ));
-  //     break;
-  //   case "weightLoss":
-  //     setQueryCategory((currState) => (
-  //       currState.weightLoss ? {...currState, weightLoss: false } : {...currState, weightLoss: true }
-  //     ));
-  //     break;
-  //   default:
-  //     break;
-  //   }
-  // };
 
   return (
     <>
@@ -69,22 +43,28 @@ function SearchRecipe() {
                     <input type="text" className="form-control shadow p-3 m-3 bg-white rounded" id="recipe-search"
                       placeholder="Search Input" onChange={handleInputChange}></input>
                   </div>
-                </form>
-                <div className="row">
-                  <div className="col-12 text-center clearfix">
-                    <button type="submit" className="btn btn-dark active float-right" id="search-btn" onClick={handleSubmit}>Submit</button>
+                  <div className="row">
+                    <div className="col-12 text-center clearfix">
+                      <button type="submit" className="btn btn-dark active float-right" id="search-btn" onClick={handleSubmit}>Submit</button>
+                    </div>
                   </div>
-                </div>
+                </form>
               </div>
               <div className="col-1"></div>
             </div>
             <div className="row shadow p-3 m-3 rounded list-border recipe-list">
               <div className="col-1"></div>
               <div className="col-10">
-                <h2><strong>Search Results</strong></h2>
-                <SearchRecipeCard key="a"/>
-                <SearchRecipeCard key="b"/>
-                <SearchRecipeCard key="c"/>
+                {foundRecipes && foundRecipes.map((recipe) => (
+                  <SearchRecipeCard
+                    key={recipe._id}
+                    title={recipe.title}
+                    categories={recipe.categories}
+                    ingredients={recipe.ingredients}
+                    prep={recipe.prep}
+                    _id={recipe._id}
+                  />
+                ))}
               </div>
               <div className="col-1"></div>
             </div>
