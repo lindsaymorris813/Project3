@@ -3,17 +3,14 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 import UserContext from "../components/Context/UserContext";
 import Jumbotron from "../components/Jumbotron";
-import Footer from "../components/Footer";
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const { email, onLogin } = useContext(UserContext);
-  // const history = useHistory();
 
   const login = (event) => {
     event.preventDefault();
-    console.log("Clicked Login");
     axios({
       method: "POST",
       data: {
@@ -25,7 +22,6 @@ const Login = () => {
     }).then((res) => {
       const responseObject = JSON.parse(res.config.data);
       const emailLoggedIn = responseObject.email;
-      console.log(emailLoggedIn);
       onLogin(emailLoggedIn);
     });
   };
@@ -42,7 +38,7 @@ const Login = () => {
             <div className="row shadow p-3 m-3 rounded list-border login-box">
               <div className="col-3"></div>
               <div className="col-6">
-              <a className="sign-up-link text-center header-color" href="/login">
+                <a className="sign-up-link text-center header-color" href="/login">
                   <h2 className="white-text"><strong>Login Page</strong></h2>
                 </a>
                 <form className="login">

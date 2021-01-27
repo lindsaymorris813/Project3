@@ -1,5 +1,6 @@
 const { DateTime } = require("luxon");
 const Rating = require("../models/rating");
+const mongoose = require("mongoose");
 
 module.exports = {
   //route for getting smoothy of the week
@@ -38,8 +39,10 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   deleteRatings: function(req, res) {
+    const objId = mongoose.Types.ObjectId(req.params.id);
+    console.log(objId);
     Rating
-      .deleteMany({ recipeId: req.params.id })
+      .deleteMany({ recipeId: objId })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

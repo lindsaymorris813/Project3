@@ -10,7 +10,7 @@ const recipeSchema = new Schema ({
   prep: Array,
   rating: { type: Schema.Types.ObjectId, ref: "Rating" },
   forkedRecipeId: { type: Schema.Types.ObjectId, ref: "Recipe" },
-  authorId: { type: Schema.Types.ObjectId, ref: "User" },
+  userId: { type: Schema.Types.ObjectId, ref: "User" },
   createdDate: { type: Date, default: Date.now },
   lastEditedDate: Date,
   editComments: Array

@@ -1,14 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Nav from "../components/Nav";
 import "../GlobalStyles.css";
 import API from "../utils/API";
-import UserContext from "../components/Context/UserContext";
 
 function Profile() {
-  const { email } = useContext(UserContext);
-  const [image, setImage] = useState();
   const [userData, setUserData] = useState({});
 
   //UseEffect
@@ -33,8 +29,7 @@ function Profile() {
     <>
       <Header />
       <div className="row">
-        <Nav />
-        <div className="col-9">
+        <div className="col">
           <div className="container">
             <div className="row shadow p-3 m-3 rounded list-border page-header">
               <div className="col">
@@ -42,14 +37,14 @@ function Profile() {
                   <div className="col">
                     <h3><strong>User Profile</strong></h3>
                     <div className="row">
-                      <div className="col-5">
-                        <img className="smoothie rounded list-border" src={userData.image} alt={userData.firstName} secure="false" width="300" crop="scale" ></img>
+                      <div className="col-5 justify-content-center">
+                        <img className="smoothie rounded list-border m-3" src={userData.image} alt={userData.firstName} secure="false" width="300" crop="scale" ></img>
                         <label className="file-label">
                           {/* Input with type of file, allows to grab file from computer and upload */}
                           {/* handle change whenever file has been added or uploaded */}
                           {/* takes e.target.file @ position 0 */}
                           <input
-                            className="file-input"
+                            className="file-input m-2"
                             type="file"
                             onChange={handleChange}
                           />
@@ -66,15 +61,15 @@ function Profile() {
                           </span>
                         </label>
                       </div>
-                      <div className="col-7 p-3">
+                      <div className="col-7 p-3 justify-content-center">
                         <div>
-                          <h5>Email: {userData.email}</h5>
+                          <h5><strong>Email</strong>: {userData.email}</h5>
                         </div>
                         <div>
-                          <h5>First Name: {userData.firstName}</h5>
+                          <h5><strong>First Name:</strong> {userData.firstName}</h5>
                         </div>
                         <div>
-                          <h5>Last Name: {userData.lastName}</h5>
+                          <h5><strong>Last Name:</strong> {userData.lastName}</h5>
                         </div>
                       </div>
                     </div>
