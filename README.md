@@ -28,7 +28,8 @@ The New Recipe page is where the user can add new recipes to their recipe list. 
 
 
 ## Installation
-<!-- This application requires a database connection in order to save the items entered in it. Some of the primary packages we used were: ESLint, Handlebars, Express, Luxon, and Passport. The npm packages which needed to be installed are all listed in the package.json file under dependencies. -->
+This application requires a database connection in order to save the items entered in it. Some of the primary packages/resources we used were: 
+ReactJS, Heroku, MongoDB, Mongoose ORM, Bootstrap, Passport, Node.js, Cloudinary, Multer, Luxon. All the npm packages which needed to be installed are all listed in the root and client package.json files.
 
 
 ## Screenshots
