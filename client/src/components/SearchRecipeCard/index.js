@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import ViewModal from "../ViewRecipeModal";
 
-function RecipeCard({ children }) {
+function SearchRecipeCard({ children }) {
 
   return (
         <>
@@ -18,7 +18,6 @@ function RecipeCard({ children }) {
                     <p className="card-text">example, orange juice, bananas, peanut butter, oat milk</p>
                     <p className="card-text"><small className="text-muted">Rating: 4/5</small></p>
                     <ViewModal />
-                    <button type="button" className="btn btn-block btn-danger float-right">Delete Recipe</button>
                   </div>
                 </div>
               </div>
@@ -27,4 +26,4 @@ function RecipeCard({ children }) {
   );
 }
 
-export default RecipeCard;
+export default SearchRecipeCard;

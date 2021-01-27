@@ -44,26 +44,26 @@ const SignUp = () => {
                 <div className="col-3"></div>
                 <div className="col-6">
                 <a className="sign-up-link text-center header-color" href="/signup">
-                    <h2>Sign Up Form</h2>
+                    <h2 className="white-text"><strong>Sign Up Form</strong></h2>
                   </a>
                   <form className="login">
                     <div className="form-group">
-                      <label htmlFor="exampleInputEmail1">Email address</label>
+                      <label htmlFor="exampleInputEmail1"><strong>Email address</strong></label>
                       <input type="email" className="form-control shadow p-3 m-3 bg-white rounded" id="signup-email-input"
                         placeholder="Email" onChange={e => setSignupEmail(e.target.value)} ></input>
                     </div>
                     <div className="form-group mt-4">
-                      <label htmlFor="exampleInputPassword1">Password</label>
+                      <label htmlFor="exampleInputPassword1"><strong>Password</strong></label>
                       <input type="password" className="form-control shadow p-3 m-3 bg-white rounded" id="signup-password-input"
                         placeholder="Password" onChange={e => setSignupPassword(e.target.value)}></input>
                     </div>
                     <div className="form-group mt-4">
-                      <label htmlFor="exampleInputFirstName1">First Name</label>
+                      <label htmlFor="exampleInputFirstName1"><strong>First Name</strong></label>
                       <input type="text" className="form-control shadow p-3 m-3 bg-white rounded" id="first-name"
                         placeholder="First Name" onChange={e => setSignupFirst(e.target.value)}></input>
                     </div>
                     <div className="form-group mt-4">
-                      <label htmlFor="exampleInputLastName1">Last Name</label>
+                      <label htmlFor="exampleInputLastName1"><strong>Last Name</strong></label>
                       <input type="text" className="form-control shadow p-3 m-3 bg-white rounded" id="last-name"
                         placeholder="Last Name" onChange={e => setSignupSecond(e.target.value)} ></input>
                     </div>
@@ -75,7 +75,7 @@ const SignUp = () => {
                     <br />
                     <div className="row mt-3">
                       <div className="col-12">
-                        <p className="text-center">Or log in <a href="/login">here</a></p>
+                        <p className="text-center"><strong>Or log in <a href="/login" className="white-text">here</a></strong></p>
                       </div>
                     </div>
                   </form>

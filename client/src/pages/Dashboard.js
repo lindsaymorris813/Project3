@@ -69,7 +69,7 @@ function Dashboard() {
             <div className="row ">
               <div className="col shadow p-3 m-3 rounded list-border recipe-list">
                 <div className="container">
-                  <h2 className="text-center">Smoothie of the Week</h2>
+                  <h2 className="text-center"><strong>Smoothie of the Week</strong></h2>
                   <h4>{recipeOfWeek.title}<span className="float-right">{recipeOfWeek.rating && recipeOfWeek.rating}/5 stars</span></h4>
                   <p>Author:</p>
                   <img src={recipeOfWeek.image} alt={recipeOfWeek.title}/>
@@ -92,7 +92,7 @@ function Dashboard() {
                 </div>
               </div>
               <div className="col shadow p-3 m-3 rounded list-border recipe-list">
-                <h2 className="text-center">My Recipes</h2>
+                <h2 className="text-center"><strong>My Recipes</strong></h2>
                 {userRecipes && userRecipes.map((recipe) => (
                   <RecipeCard key={recipe._id}/>
                 ))}

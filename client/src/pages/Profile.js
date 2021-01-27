@@ -40,7 +40,7 @@ function Profile() {
               <div className="col">
                 <div className="row">
                   <div className="col">
-                    <h3>User Profile</h3>
+                    <h3><strong>User Profile</strong></h3>
                     <div className="row">
                       <div className="col-5">
                         <img className="smoothie rounded list-border" src={userData.image} alt={userData.firstName} secure="false" width="300" crop="scale" ></img>
