@@ -63,12 +63,12 @@ function SearchRecipe() {
         <div className="col-9">
           <div className="container">
             <div className="row"></div>
-            <div className="row shadow p-3 m-3 rounded list-border">
+            <div className="row shadow p-3 m-3 rounded list-border page-header">
               <div className="col-1"></div>
               <div className="col-10">
                 <form className="login">
                   <div className="form-group">
-                    <label htmlFor="searchRecipe"><h2>Search for a Recipe</h2></label>
+                    <label htmlFor="searchRecipe"><h2><strong>Search for a Recipe</strong></h2></label>
                     <input type="text" className="form-control shadow p-3 m-3 bg-white rounded" id="recipe-search"
                       placeholder="Search Input"></input>
                   </div>
@@ -104,9 +104,10 @@ function SearchRecipe() {
               </div>
               <div className="col-1"></div>
             </div>
-            <div className="row shadow p-3 m-3 rounded list-border">
+            <div className="row shadow p-3 m-3 rounded list-border recipe-list">
               <div className="col-1"></div>
               <div className="col-10">
+                <h2><strong>Search Results</strong></h2>
                 <SearchRecipeCard key="a"/>
                 <SearchRecipeCard key="b"/>
                 <SearchRecipeCard key="c"/>

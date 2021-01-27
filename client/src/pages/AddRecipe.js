@@ -22,7 +22,7 @@ function AddRecipe() {
               <div className="col-10">
                 <form className="login">
                   <div className="form-group">
-                    <h2>Add a New Recipe</h2>
+                    <h2><strong>Add a New Recipe</strong></h2>
                   </div>
                   <div className="row">
                     <div className="col-12 text-center clearfix">
@@ -37,7 +37,7 @@ function AddRecipe() {
             <div className="row shadow p-3 m-3 rounded list-border recipe-list">
               <div className="col-1"></div>
               <div className="col-10">
-                <h2>My Recipes</h2>
+                <h2><strong>My Recipes</strong></h2>
                 <RecipeCard />
                 <RecipeCard />
                 <RecipeCard />
