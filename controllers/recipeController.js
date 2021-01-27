@@ -11,7 +11,7 @@ module.exports = {
   //route to return recipies based on search categories
   searchRecipe: function(req,res){
     Recipe
-      .find({ $text: {$search: req}})
+      .find({ $text: {$search: req.query }})
       .then(dbModel=> {
         console.log(req);
         res.json(dbModel);

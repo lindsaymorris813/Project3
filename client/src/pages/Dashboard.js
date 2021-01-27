@@ -38,7 +38,7 @@ function Dashboard() {
   const getRecipes = () => {
     API.getUserInfo()
       .then((res) => {
-        setRecipeOfWeek((recipeOfWeek) => ({...recipeOfWeek, author: res.data.firstName + " " + res.data.lastName}));
+        console.log(res.data);
         API.getUserRecipes(res.data._id)
           .then((res) => {
             console.log(res);
@@ -71,24 +71,21 @@ function Dashboard() {
                 <div className="container">
                   <h2 className="text-center"><strong>Smoothie of the Week</strong></h2>
                   <h4>{recipeOfWeek.title}<span className="float-right">{recipeOfWeek.rating && recipeOfWeek.rating}/5 stars</span></h4>
+                  <p>Author:</p>
                   <img src={recipeOfWeek.image} alt={recipeOfWeek.title}/>
                   <h5>Category:</h5>
                   <div>
-                    <ul>
-                      {recipeOfWeek.categories && recipeOfWeek.categories.map((category) => (
-                        <li key={category}>{category}</li>
-                      ))}
-                    </ul>
+                    {recipeOfWeek.categories && recipeOfWeek.categories.map((category) => (
+                      <p>{category}</p>
+                    ))}
                   </div>
                   <h5>Type:</h5>
                   <p>{recipeOfWeek.type}</p>
                   <h5>Ingredients:</h5>
                   <div>
-                    <ul>
-                      {recipeOfWeek.ingredients && recipeOfWeek.ingredients.map((ingredient) => (
-                        <li key={ingredient}>{ingredient}</li>
-                      ))}
-                    </ul>
+                    {recipeOfWeek.ingredients && recipeOfWeek.ingredients.map((ingredient) => (
+                      <p>{ingredient}</p>
+                    ))}
                   </div>
                   <h5>Prep:</h5>
                   <p>{recipeOfWeek.prep}</p>
@@ -97,8 +94,7 @@ function Dashboard() {
               <div className="col shadow p-3 m-3 rounded list-border recipe-list">
                 <h2 className="text-center"><strong>My Recipes</strong></h2>
                 {userRecipes && userRecipes.map((recipe) => (
-                  <RecipeCard key={recipe}
-                    recipes={recipe}/>
+                  <RecipeCard recipes={recipe} key={recipe._id}/>
                 ))}
               </div>
             </div>
