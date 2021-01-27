@@ -38,15 +38,14 @@ const SignUp = () => {
             <Jumbotron />
             <div className="container">
               <div className="row">
-                <div className="col-sm-12 mt-5">
-                  <a className="sign-up-link text-center header-color" href="/signup">
-                    <h2>Sign Up Form</h2>
-                  </a>
-                </div>
+                <div className="col-sm-12 mt-5"></div>
               </div>
-              <div className="row shadow p-3 m-3 rounded list-border">
+              <div className="row shadow p-3 m-3 rounded list-border login-box">
                 <div className="col-3"></div>
                 <div className="col-6">
+                <a className="sign-up-link text-center header-color" href="/signup">
+                    <h2>Sign Up Form</h2>
+                  </a>
                   <form className="login">
                     <div className="form-group">
                       <label htmlFor="exampleInputEmail1">Email address</label>
@@ -83,9 +82,7 @@ const SignUp = () => {
                 </div>
                 <div className="col-3"></div>
               </div>
-
             </div>
-            <Footer />
         </>
   );
 };

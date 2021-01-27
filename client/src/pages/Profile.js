@@ -36,7 +36,7 @@ function Profile() {
         <Nav />
         <div className="col-9">
           <div className="container">
-            <div className="row shadow p-3 m-3 rounded list-border">
+            <div className="row shadow p-3 m-3 rounded list-border page-header">
               <div className="col">
                 <div className="row">
                   <div className="col">

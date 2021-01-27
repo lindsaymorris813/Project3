@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import RecipeCard from "../components/RecipeCard";
 import CreateModal from "../components/Modal";
@@ -18,7 +17,7 @@ function AddRecipe() {
         <div className="col-9">
           <div className="container">
             <div className="row"></div>
-            <div className="row shadow p-3 m-3 rounded list-border">
+            <div className="row shadow p-3 m-3 rounded list-border page-header">
               <div className="col-1"></div>
               <div className="col-10">
                 <form className="login">
@@ -35,7 +34,7 @@ function AddRecipe() {
               </div>
               <div className="col-1"></div>
             </div>
-            <div className="row shadow p-3 m-3 rounded list-border">
+            <div className="row shadow p-3 m-3 rounded list-border recipe-list">
               <div className="col-1"></div>
               <div className="col-10">
                 <h2>My Recipes</h2>
@@ -48,7 +47,6 @@ function AddRecipe() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
 
   );
