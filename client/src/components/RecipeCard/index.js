@@ -4,7 +4,7 @@ import ViewModal from "../ViewRecipeModal";
 import API from "../../utils/API";
 
 function RecipeCard ( props ) {
-  console.log(props.key);
+  console.log(props);
   const [rating, setRating] = useState();
   const getRating= () => {
     API.getRating(props._id)
@@ -17,6 +17,15 @@ function RecipeCard ( props ) {
   useEffect(() => {
     getRating(props._id);
   }, []);
+
+  const deleteRecipe = () => {
+    API.deleteRatings(props._id);
+    API.deleteRecipe(props._id)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+  };
 
   return (
     <>
@@ -52,8 +61,13 @@ function RecipeCard ( props ) {
               {props.prep}
             </div>
           </div>
-          <div className="row m-2 clearfix">
-            <ViewModal className="m-2 float-right"/>
+          <div className="row clearfix">
+            <div className="col m-2 text-center clearfix">
+              <button type="button" className="btn btn-danger active float-left" onClick={deleteRecipe} id="login-btn">Delete Your Recipe</button>
+            </div>
+            <div className="col m-2 float-left">
+              <ViewModal className="col m-2 float-left"/>
+            </div>
           </div>
         </div>
     </>

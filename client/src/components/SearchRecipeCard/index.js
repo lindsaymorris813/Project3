@@ -4,12 +4,10 @@ import ViewModal from "../ViewRecipeModal";
 import API from "../../utils/API";
 
 function SearchRecipeCard ( props ) {
-  console.log(props._id);
   const [rating, setRating] = useState();
   const getRating= () => {
     API.getRating(props._id)
       .then((res) => {
-        console.log(res.data);
         setRating(res.data[0].avgRating);
       })
       .catch(err => console.log(err));

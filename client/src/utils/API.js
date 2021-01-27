@@ -20,7 +20,7 @@ export default {
   },
   //get Recipes from Search
   searchRecipes: function(query) {
-    return axios.get("/api/recipes", {query: query});
+    return axios.get("/api/recipes", {query});
   },
   //add new Recipe
   addRecipe: function(recipeData) {
@@ -32,7 +32,7 @@ export default {
   },
   //delete Recipe by ID
   deleteRecipe: function(id) {
-    return axios.get("api/recipes/" + id);
+    return axios.delete("api/recipes/" + id);
   },
   //add Image to Recipe by ID
   uploadRecipeImage: function(id, imageURL) {

@@ -4,7 +4,6 @@ import SearchRecipeCard from "../components/SearchRecipeCard";
 import API from "../utils/API";
 
 function SearchRecipe() {
-
   const [searchBar, setSearchBar] = useState([]);
   const [foundRecipes, setFoundRecipes] = useState([]);
 
