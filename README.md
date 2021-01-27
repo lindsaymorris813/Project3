@@ -48,10 +48,18 @@ alt="Login Page" width="900"/></a> -->
 
 ## Credits
 
+Contributors!
+* Lindsay Morris: https://github.com/lindsaymorris813
+* Zoreah Burden: https://github.com/Zoreah 
+* Maren Hamby: https://github.com/marenhamby
+* Samuel Starling Gibson: https://github.com/Star-Gibson
+* Valliappan Lakshmanan: https://github.com/v-lax 
 
 
 
 ## Links
 
+Deployed link on Heroku: http://juicy-smoothie.herokuapp.com/login
 
+Link to our code on GitHub: https://github.com/lindsaymorris813/Project3
 
