@@ -34,19 +34,29 @@ ReactJS, Heroku, MongoDB, Mongoose ORM, Bootstrap, Passport, Node.js, Cloudinary
 
 ## Screenshots
 
+### Sign Up Page Screenshot 
+<a href="http://juicy-smoothie.herokuapp.com/" target="_blank"><img src="./client/public/images/signup.png" 
+alt="Sign Up Page" width="900"/></a>
 
 ### Login Page Screenshot 
-<!-- <a href="http://juicy-smoothie.herokuapp.com/login" target="_blank"><img src="./public/images/login-form.png" 
-alt="Login Page" width="900"/></a> -->
+<a href="http://juicy-smoothie.herokuapp.com/" target="_blank"><img src="./client/public/images/login.png" 
+alt="Login Page" width="900"/></a>
 
 ### Dashboard Page Screenshot
+<a href="http://juicy-smoothie.herokuapp.com/" target="_blank"><img src="./client/public/images/dashboard.png" 
+alt="Dashboard Page" width="900"/></a>
 
+### User Profile Page Screenshot 
+<a href="http://juicy-smoothie.herokuapp.com/" target="_blank"><img src="./client/public/images/userprofile.png" 
+alt="User Profile Page" width="900"/></a>
 
 ### Search Recipe Page Screenshot
-
+<a href="http://juicy-smoothie.herokuapp.com/" target="_blank"><img src="./client/public/images/searchrecipes.png" 
+alt="Search Recipe Page" width="900"/></a>
 
 ### Add Recipe Page Screenshot
-
+<a href="http://juicy-smoothie.herokuapp.com/" target="_blank"><img src="./client/public/images/addrecipes.png" 
+alt="Add Recipe Page" width="900"/></a>
 
 
 ## Credits

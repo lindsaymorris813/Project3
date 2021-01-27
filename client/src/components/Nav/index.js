@@ -10,7 +10,7 @@ function Nav() {
     <div className="col-2">
       <div className="container">
         <div className="row shadow  p-3 m-3 rounded list-border nav-class">
-          <div className="col">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link

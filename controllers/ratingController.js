@@ -18,9 +18,7 @@ module.exports = {
   //route to get rating for recipe based on ID
   getRating: function(req, res){
     Rating
-      .aggregate([{$group: {_id: "$recipeId", avgRating: {$avg:"$rating"}}},
-        {$sort: { avgRating: -1 }},
-        {$limit: 1}
+      .aggregate([{$match: { $recipeId: req.params.id }},{$group: {_id: "$recipeId", avgRating: {$avg:"$rating"}}}
       ])
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
