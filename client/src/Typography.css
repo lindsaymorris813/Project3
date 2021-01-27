@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Handlee', cursive;
-  font-size: 50px;
+  font-size: 75px;
 
 }
 
@@ -11,5 +11,39 @@ body {
 
 }
 
+h2, h3, h5, h6, 
+button.btn.btn.btn-danger.btn-sm, button#search-btn.btn.btn-block.btn-info.active.float-right, button.btn.btn-outline-info.my-2.my-sm-0  {
+  font-family: 'Handlee', cursive;
+}
 
 
+
+
+
+  p.card-text, div.col.shadow.p-3.m-3.rounded.list-border, label {
+
+    font-size: 20px;
+
+  }
+
+a.nav-link {
+
+  font-size: 23px;
+}
+
+
+h5.card-title {
+
+  font-size: 25px;
+}
+
+div.navbar-brand {
+
+  font-size: 28px;
+}
+
+
+
+.white-text {
+  color: rgba(20, 92, 158, 0.89);
+}

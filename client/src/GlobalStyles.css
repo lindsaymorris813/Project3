@@ -1,12 +1,48 @@
 
 .jumbotron {
-  background-image: url("https://raw.githubusercontent.com/lindsaymorris813/Project3/main/client/public/images/fruitTray.jpg");
+  background-image: url("https://wallpaperaccess.com/full/1101808.jpg");
+  text-align: center;
 }
 
 .App {
-  background-color: rgb(195, 227, 240);
+  
+  /* background-image: url("https://i.pinimg.com/originals/d0/e4/87/d0e487cd47ba25f2975e9fdf08e92440.jpg"); */
+  background-color: rgba(20, 92, 158, 0.89);
+  padding-bottom: 40vmax;
 }
 
 .smoothie {
   width: 300px;
- }
+}
+
+html {
+  height: 100%
+}
+
+.background-pic {
+  /* background-image: url("https://wallpaperaccess.com/full/1101808.jpg"); */
+  height: 62%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.login-box {
+  background-color: rgba(74, 189, 172, 1);
+}
+
+.page-header {
+  background-color:#4ABDAC;
+}
+
+.recipe-list {
+  background-color: #E0DEDE;
+}
+
+h3 {
+  text-align: center;
+
+}
+
+ 

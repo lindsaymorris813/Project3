@@ -7,9 +7,9 @@ function Nav() {
 
 
   return (
-    <div className="col-3 nav-class">
+    <div className="col-2">
       <div className="container">
-        <div className="row shadow p-3 m-3 rounded list-border">
+        <div className="row shadow  p-3 m-3 rounded list-border nav-class">
           <div className="col">
             <ul className="navbar-nav">
               <li className="nav-item">
